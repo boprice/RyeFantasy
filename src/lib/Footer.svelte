@@ -111,11 +111,13 @@
 		<ul>
 			{#each tabs as tab}
 				{#if !tab.nest}
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<li><div class="navLink" on:click={() => goto(tab.dest)}>{tab.label}</div></li>
 				{:else}
 					{#each tab.children as child}
                         <!-- Shouldn't show Managers tab unless managers has been populated -->
 				        {#if child.label != "Managers" || managers.length > 0}
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <li><div class="navLink" on:click={() => goto(child.dest)}>{child.label}</div></li>
                         {/if}
 					{/each}
@@ -130,5 +132,5 @@
 	<span class="creator">Built by <a href="http://www.nmelhado.com/">Nicholas Melhado</a><br /></span>
 	<!-- You can remove the donation link (although any donations to help
 	 maintain and enhance League Page would be greatly appreciated!) -->
-	Love League Page? Please consider <a href="https://www.buymeacoffee.com/nmelhado">donating</a> to support enhancements or just to say thank you!
+	<!-- Love League Page? Please consider <a href="https://www.buymeacoffee.com/nmelhado">donating</a> to support enhancements or just to say thank you! -->
 </footer>
