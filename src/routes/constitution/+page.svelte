@@ -96,9 +96,9 @@
 </style>
 
 <div class="constitution">
-    <h1 class="noUnderscore">LEGENDS LEAGUE CONSTITUTION</h1>
+    <h1 class="noUnderscore">DYNASTY LEAGUE CONSTITUTION</h1>
     
-    <h2 class="noUnderscore">TABLE OF CONTENTS</h2>
+    <!-- <h2 class="noUnderscore">TABLE OF CONTENTS</h2>
     
     <h3 class="noUnderscore clickable" on:click={() => goToSection(one)}>Section 1: Roster</h3>
         <h4 class="noUnderscore clickable" on:click={() => goToSection(oneOne)}>1.1 Positional Breakdown</h4>
@@ -142,16 +142,16 @@
         <h4 class="noUnderscore clickable" on:click={() => goToSection(sixTwo)}>7.2 Payout</h4>
         <h4 class="noUnderscore clickable" on:click={() => goToSection(sixThree)}>7.3 Raising Dues</h4>
     
-    
-    <hr />
+    -->
+    <hr /> 
     
     <h2 class="sectionHeading" bind:this={one}>Section 1 Roster Breakdown</h2>
     
-    <h3 class="subSectionHeading" bind:this={oneOne}>1.1 Positional Breakdown</h3>
+    <h3 class="subSectionHeading" bind:this={oneOne}>1.1 Starters</h3>
     
     <p>28 Total Players</p>
     
-    <p class="underscore">Starters</p>
+    <!-- <p class="underscore">Starters</p> -->
     <ul>
         <li>QB</li>
         <li>RB</li>
@@ -159,30 +159,33 @@
         <li>WR</li>
         <li>WR</li>
         <li>TE</li>
-        <li>FLEX (RB/WR/TE)</li>
-        <li>FLEX (RB/WR)</li>
-        <li>D/ST</li>
-        <li>K</li>
+        <li>FLEX</li>
+        <li>FLEX</li>
     </ul>
     
-    <p>18 Bench (Expanded by 5 between the keague draft and start of regular season)</p>
+    <p>14 Bench</p>
 
-    <p>1 IR Spots (Player must be labeled as IR, Out, or Covid in the Sleeper App)</p>
+    <p>3 IR Spots (Player must be labeled as IR, Out, or PUP in the Sleeper App.)</p>
+
+    <p>3 Taxi Squad Spots(Player must be a Rookie or Sophomore.)</p>
+
+    <h3 class="subSectionHeading" bind:this={oneTwo}>1.2 Taxi Squad</h3>
+
+    <p>Taxi squads offer the option of stashing players that don't count against your roster limit.</p>
+
+    <ul>
+        <li>Rookie & Sophomores Only</li>
+        <li>Taxi Deadline: Start of the Season</li>
+        <ul>
+            <li>Players cannot be added to the Taxi once the season starts.</li>
+            <li>Players can be moved to the active roster at any time.</li>
+        </ul>
+    </ul>
     
-        <h4 bind:this={oneOneOne}>1.1.1 Position Maximums</h4>
+        <!-- <h4 bind:this={oneOneOne}>1.1.1 Position Maximums</h4> -->
+
+
         
-        <div class="subBlock">
-            <table class="positionMaximums">
-                <tr><td>QB</td><td class="right">3 active, 5 total</td></tr>
-                <tr><td>RB</td><td class="right">20</td></tr>
-                <tr><td>WR</td><td class="right">20</td></tr>
-                <tr><td>TE</td><td class="right">10</td></tr>
-                <tr><td>D/ST</td><td class="right">3</td></tr>
-                <tr><td>K</td><td class="right">3</td></tr>
-            </table>
-        </div>
-
-
     <h3 class="subSectionHeading" bind:this={oneTwo}>1.2 Trading</h3>
     
     <p>Trading of players and draft picks (up to 3 drafts away) are allowed. Trades will process immediately and will be reversed if vetoed or under investigation for collusion. Tradable assets include players, draft picks, and FAAB $.</p>
