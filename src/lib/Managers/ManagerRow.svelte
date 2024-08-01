@@ -229,6 +229,7 @@
     }
 </style>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="manager" style="{retired ? "background-image: url(/retired.png); background-color: var(--ddd)": ""}" on:click={() => goto(`/manager?manager=${key}`)}>
     <div class="avatarHolder">
         <img class="photo" src="{manager.photo}" alt="{manager.name}" />
@@ -250,7 +251,7 @@
                 </div>
             {:else}
                 <div class="infoIcon question">
-                    <img class="infoImg" src="/managers/question.jpg" alt="favorite team"/>
+                    <img class="infoImg" src="/managers/nfl.png" alt="favorite team"/>
                 </div>
             {/if}
         </div>
