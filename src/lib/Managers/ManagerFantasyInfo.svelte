@@ -110,6 +110,11 @@
     .Picks {
         background: #73b647;
     }
+
+    .UCF {
+        background-color: #BA9B37;
+    }
+
     .K {
         background-color: var(--K);
     }
