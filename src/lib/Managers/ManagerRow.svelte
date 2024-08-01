@@ -225,7 +225,7 @@
     }
 
     .question {
-        background-color: #fff;
+        background-color: #000000;
     }
 </style>
 
