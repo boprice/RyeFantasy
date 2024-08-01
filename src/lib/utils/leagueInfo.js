@@ -7,7 +7,7 @@ export const enableBlog = false; // requires VITE_CONTENTFUL_ACCESS_TOKEN and VI
 
 /*   STEP 2   */
 export const homepageText = `
-  <p>Silly fantasy football.</p>
+  <p>Welcome to RYE Headquarters!</p>
 `;
 
 /*   STEP 3   */
@@ -185,9 +185,9 @@ export const managers = [
     "favoriteTeam": "jax", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
     "mode": "Dynasty", // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
     "rival": {
-      name: "Rival", // Can be anything (usually your rival's name)
+      name: null, // Can be anything (usually your rival's name)
       link: null, // manager array number within this array, or null to link back to all managers page
-      image: "/../managers/question.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
+      image: null, // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     "favoritePlayer": 1979, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     "valuePosition": "UCF", // (optional) Favorite position (QB, WR, RB, TE, etc.)
@@ -246,7 +246,7 @@ export const managers = [
     "name": "Ethan",
     "location": null, // (optional)
     "bio": "Joined the league year 1, then had a falling out with Rainbow Six Seige and quit everything.",
-    "photo": "/../managers/question.jpg", // square ratio recommended (no larger than 500x500)
+    "photo": "/../managers/ethan.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": null, // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
     "mode": null, // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
