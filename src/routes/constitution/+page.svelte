@@ -1,6 +1,7 @@
 <script>
     import { dues } from '$lib/utils/helper';
-    let one, oneOne, oneOneOne, oneTwo, oneTwoOne, oneTwoTwo, oneTwoThree, oneTwoFour, oneTwoFive, oneThree;
+    import { bind } from 'svelte/internal';
+    let one, oneOne, oneOneOne, oneTwo, oneTwoOne, oneTwoTwo, oneTwoThree, oneTwoFour, oneTwoFive, oneThree, oneFour;
     let two, twoOne, twoTwo, twoThree;
     let three, threeOne;
     let four, fourOne, fourTwo;
@@ -183,12 +184,10 @@
             <li>Players can be moved to the active roster at any time.</li>
         </ul>
     </ul>
-    
-        <!-- <h4 bind:this={oneOneOne}>1.1.1 Position Maximums</h4> -->
 
 
         
-    <h3 class="subSectionHeading" bind:this={oneTwo}>1.3 Trading</h3>
+    <h3 class="subSectionHeading" bind:this={oneThree}>1.3 Trading</h3>
     
     <p>Trades will process immediately.</p>
 
@@ -203,11 +202,28 @@
     
     
     
-    <h3 bind:this={oneThree}>1.4 Waiver Wire</h3>
+    <h3 bind:this={oneFour}>1.4 Waiver Wire</h3>
     
-    <p>FAAB Waiver wire system. Each team will begin the season with $100. $0 bids are allowed. Bids will process Thursdays and Sundays at 9AM EST.</p>
+    <p>FAAB Waiver wire system. $0 bids are allowed.</p>
+    <p>Daily Waivers</p>
+    <ul>
+        <li>During the season:</li>
+        <ul>
+            <li>Wed-Sat: Waivers process at 7PM EST</li>
+            <li>Sun-Mon: Free Agents</li>
+        </ul>
+        <li>Offseason: Everyday at 7PM EST</li>
+    </ul>
 
-    <p>FAAB budgets will reset each season in January.</p>
+    <p>FAAB budgets will reset at the start of the season, start of the offseason, & after the rookie draft.</p>
+
+
+
+    <h2 class="sectionHeading" bind:this={two}>Section 2 Scheduling</h2>
+
+    <h3 bind:this={twoOne}>2.1 Regular Season</h3>
+    <p>The regular season will consist of 14 weeks. Playoffs will be weeks 15-17</p>
+
     
     
     <h2 class="sectionHeading" bind:this={two}>Section 2 Drafting</h2>
