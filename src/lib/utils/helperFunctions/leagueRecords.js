@@ -226,8 +226,14 @@ const analyzeRosters = ({year, roster, regularSeason}) => {
 	if(roster.settings.wins == 0 && roster.settings.ties == 0 && roster.settings.losses == 0) return;
 
 	// fptsFor and fptsPerGame are used for both rosterRecords and seasonLongPoints
+	// Check if the year is 2018 or 2019, else the median is recorded so must divide games by 2
 	const fptsFor = roster.settings.fpts + (roster.settings.fpts_decimal / 100);
-	const fptsPerGame = round(fptsFor / (roster.settings.wins + roster.settings.losses + roster.settings.ties));
+	let fptsPerGame;
+	if(year==2018 || year==2019) {
+		fptsPerGame = round(fptsFor / (roster.settings.wins + roster.settings.losses + roster.settings.ties));
+	} else {
+		fptsPerGame = round(fptsFor / ((roster.settings.wins + roster.settings.losses + roster.settings.ties)/2));
+	}
 
 	const rosterRecords = {
 		wins:  roster.settings.wins,
