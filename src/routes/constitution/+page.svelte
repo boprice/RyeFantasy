@@ -2,7 +2,7 @@
     import { dues } from '$lib/utils/helper';
     import { bind } from 'svelte/internal';
     let one, oneOne, oneOneOne, oneTwo, oneTwoOne, oneTwoTwo, oneTwoThree, oneTwoFour, oneTwoFive, oneThree, oneFour;
-    let two, twoOne, twoTwo, twoTwoTwo, twoThree, twoFour;
+    let two, twoOne, twoTwo, twoTwoTwo, twoThree, twoFour, twoFive;
     let three, threeOne;
     let four, fourOne, fourTwo;
     let five, fiveOne;
@@ -205,12 +205,13 @@
     <h3 bind:this={oneFour}>1.4 Waiver Wire</h3>
     
     <p>FAAB Waiver wire system. $0 bids are allowed.</p>
-    <p>Daily Waivers</p>
+    <p class="underscore">Daily Waivers</p>
     <ul>
         <li>During the season:</li>
         <ul>
             <li>Wed-Sat: Waivers process at 7PM EST</li>
             <li>Sun-Mon: Free Agents</li>
+            <li>Players still lock at gametime, and will be available for the Tuesday night waivers.</li>
         </ul>
         <li>Offseason: Everyday at 7PM EST</li>
     </ul>
@@ -222,24 +223,26 @@
     <h2 class="sectionHeading" bind:this={two}>Section 2 Scheduling</h2>
 
     <h3 bind:this={twoOne}>2.1 Regular Season</h3>
-    <p>The regular season will consist of 14 weeks. Playoffs will be weeks 15-17</p>
+    <p>The regular season will be weeks 1-14.</p>
 
     <h3 bind:this={twoTwo}>2.2 Divisions</h3>
-    <p>There will be 2 divisions, Top & Bottom. Top & Bottom will consist of the previous year's top 5 and bottom 5 finishers.</p>
-    <p>The divisions will be set every year, based on teh previous season's finishers.</p>
+    <p>There will be 2 divisions, Top & Bottom. Top & Bottom will consist of the previous year's Top 5 and Bottom 5 finishers.</p>
+    <p>The divisions will be set every year, based on the previous season's finishers.</p>
 
     <h4 bind:this={twoTwoTwo}>2.2.2 Division Schedules</h4>
-    <p>You will play your division teams 2 times per year, and non-division teams once per year.</p>
-    <p>This should balance the schedules with the bottom teams getting an "easier" schedule, only having to play the top 5 teams once each.</p>
+    <div class="subBlock">
+        <p>You will play your division teams 2 times per year, and non-division teams 1 time per year.</p>
+        <p>This should balance the schedules with the Bottom teams getting an "easier" schedule, only having to play the Top teams once each.</p>
+    </div>
 
     <h3 bind:this={twoThree}>2.3 Rivals</h3>
-    <p>The last week of the season will be "Rivals Week". The rivals will be narrative based and have the potential to change year to year. (ex. Colt vs Chris, because he's 0-10 lol)</p>
-    <p>The rivals will be finalized pre-season, and will not change mid season.</p>
+    <p>The last week of the season will be "Rivals Week". The rivals have the potential to change every year, and will be narrative based. (ex. Colt vs Chris, because he's 0-10 lol)</p>
+    <p>The rivals will be finalized pre-season, and will not change once the season begins.</p>
 
     <h3 bind:this={twoFour}>2.4 Median</h3>
     <p>Each team faces an extra matchup against the league's median score weekly. This levels the playing field by rewarding strong performances regardless of matchup luck.</p>
     <ul>
-        <li>2-0 and 0-2 is the exact same as 1-0 and 0-1 in a league without the median</li>
+        <li>2-0 and 0-2 is the exact same as 1-0 and 0-1 in a league without the median.</li>
         <li>1-1 is the only new outcome:</li>
         <ul>
             <li>Lost head to head but beat the median. This is good, you scored great but got shafted by an unlucky schedule.</li>
@@ -248,6 +251,19 @@
         <!-- ADD AFTER LINKING GOOGLE SHEETS TO WEBSITE -->
         <!-- <li>Check "Other Schedules" chart for evidence of lucky/unlucky schedules.</li> -->
     </ul>
+
+    <h3 bind:this={twoFive}>2.5 Playoffs</h3>
+    <p>Playoffs will be weeks 15-17. The top 6 teams, based on OVERALL record, will make the playoffs. The top 2 teams will receive a Round 1 bye. Each playoff matchup will only last one week and the winner will advance. Week 18 will not be used.</p>
+    <p class="underscore">Seeding Tie Breakers:</p>
+    <ol>
+        <li>Points For</li>
+        <li>Head 2 Head Record (Current Year)</li>
+        <li>Division Record</li>
+        <li>Total Points Against (Highest)</li>
+        <li>Coin Flip</li>
+        <li>Duel to the death</li>
+    </ol>
+    <p>A playoff tie will go to the higher seed.</p>
 
     
     
