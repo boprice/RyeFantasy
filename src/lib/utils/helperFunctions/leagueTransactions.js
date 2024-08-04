@@ -202,7 +202,7 @@ const digestDate = (tStamp) => {
 	const date = a.getDate();
 	const hour = a.getHours();
 	const min = a.getMinutes();
-	return month + ' ' + date + ' ' + year + ', ' + (hour % 12 == 0 ? 12 : hour % 12) + ':' + min + (hour / 12 >= 1 ? "PM" : "AM");
+	return month + ' ' + date + ' ' + year + ', ' + (hour % 12 == 0 ? 12 : hour % 12) + ':' + (min.toString().padStart(2, '0')) + (hour / 12 >= 1 ? "PM" : "AM");
 }
 
 const digestTransaction = ({transaction, currentSeason}) => {
