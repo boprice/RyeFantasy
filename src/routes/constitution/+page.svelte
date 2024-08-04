@@ -2,7 +2,7 @@
     import { dues } from '$lib/utils/helper';
     import { bind } from 'svelte/internal';
     let one, oneOne, oneOneOne, oneTwo, oneTwoOne, oneTwoTwo, oneTwoThree, oneTwoFour, oneTwoFive, oneThree, oneFour;
-    let two, twoOne, twoTwo, twoThree;
+    let two, twoOne, twoTwo, twoTwoTwo, twoThree, twoFour;
     let three, threeOne;
     let four, fourOne, fourTwo;
     let five, fiveOne;
@@ -197,7 +197,7 @@
             <li>3 years ahead.</li>
             <li>4 rounds per year.</li>
         </ul>
-        <li>No Trade Deadline</li>
+        <li class="underscore">No Trade Deadline</li>
     </ul>
     
     
@@ -223,6 +223,31 @@
 
     <h3 bind:this={twoOne}>2.1 Regular Season</h3>
     <p>The regular season will consist of 14 weeks. Playoffs will be weeks 15-17</p>
+
+    <h3 bind:this={twoTwo}>2.2 Divisions</h3>
+    <p>There will be 2 divisions, Top & Bottom. Top & Bottom will consist of the previous year's top 5 and bottom 5 finishers.</p>
+    <p>The divisions will be set every year, based on teh previous season's finishers.</p>
+
+    <h4 bind:this={twoTwoTwo}>2.2.2 Division Schedules</h4>
+    <p>You will play your division teams 2 times per year, and non-division teams once per year.</p>
+    <p>This should balance the schedules with the bottom teams getting an "easier" schedule, only having to play the top 5 teams once each.</p>
+
+    <h3 bind:this={twoThree}>2.3 Rivals</h3>
+    <p>The last week of the season will be "Rivals Week". The rivals will be narrative based and have the potential to change year to year. (ex. Colt vs Chris, because he's 0-10 lol)</p>
+    <p>The rivals will be finalized pre-season, and will not change mid season.</p>
+
+    <h3 bind:this={twoFour}>2.4 Median</h3>
+    <p>Each team faces an extra matchup against the league's median score weekly. This levels the playing field by rewarding strong performances regardless of matchup luck.</p>
+    <ul>
+        <li>2-0 and 0-2 is the exact same as 1-0 and 0-1 in a league without the median</li>
+        <li>1-1 is the only new outcome:</li>
+        <ul>
+            <li>Lost head to head but beat the median. This is good, you scored great but got shafted by an unlucky schedule.</li>
+            <li>Won head to head but lost to the median. You got lucky on the schedule, but you still scored poorly. This is the only "bad" outcome.</li>
+        </ul>
+        <!-- ADD AFTER LINKING GOOGLE SHEETS TO WEBSITE -->
+        <!-- <li>Check "Other Schedules" chart for evidence of lucky/unlucky schedules.</li> -->
+    </ul>
 
     
     
