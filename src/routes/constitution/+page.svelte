@@ -97,7 +97,7 @@
 </style>
 
 <div class="constitution">
-    <h1 class="noUnderscore">DYNASTY LEAGUE CONSTITUTION</h1>
+    <h1 class="noUnderscore">CONSTITUTION</h1>
     
     <!-- <h2 class="noUnderscore">TABLE OF CONTENTS</h2>
     
