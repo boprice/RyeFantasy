@@ -246,10 +246,18 @@ const analyzeRosters = ({year, roster, regularSeason}) => {
 	// 	fptsPerGame = round(fptsFor / ((roster.settings.wins + roster.settings.losses + roster.settings.ties)/2));
 	// }
 
+	// Create (t:total) tWins, tLosses, and tTies for including all games in win percentage calculations
+	const tWins = roster.settings.wins;
+	const tLosses = roster.settings.losses;
+	const tTies = roster.settings.ties;
+
 	const rosterRecords = {
 		wins,
 		losses,
 		ties,
+		tWins,
+		tLosses,
+		tTies,
 		fptsFor,
 		fptsAgainst:  roster.settings.fpts_against + (roster.settings.fpts_against_decimal / 100),
 		fptsPerGame,
