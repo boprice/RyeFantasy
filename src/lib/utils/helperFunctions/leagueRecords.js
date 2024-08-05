@@ -225,19 +225,9 @@ const analyzeRosters = ({year, roster, regularSeason}) => {
 	// season hasn't started, no records to obtain
 	if(roster.settings.wins == 0 && roster.settings.ties == 0 && roster.settings.losses == 0) return;
 
-	// fptsFor and fptsPerGame are used for both rosterRecords and seasonLongPoints
-	// Check if the year is 2018 or 2019, else the median is recorded so must divide games by 2
-	const fptsFor = roster.settings.fpts + (roster.settings.fpts_decimal / 100);
-	let fptsPerGame;
-	if(year==2018 || year==2019) {
-		fptsPerGame = round(fptsFor / (roster.settings.wins + roster.settings.losses + roster.settings.ties));
-	} else {
-		fptsPerGame = round(fptsFor / ((roster.settings.wins + roster.settings.losses + roster.settings.ties)/2));
-	}
-
 	// Check if the year is 2018 or 2019, before setting wins, losses, and ties
 	let wins, losses, ties;
-	if(year==2018 || year==2019) {
+	if(year<=2019) {
 		wins = roster.settings.wins;
 		losses = roster.settings.losses;
 		ties = roster.settings.ties;
@@ -247,10 +237,16 @@ const analyzeRosters = ({year, roster, regularSeason}) => {
 		ties = (roster.settings.ties)/2;
 	}
 
+	// fptsFor and fptsPerGame are used for both rosterRecords and seasonLongPoints
+	const fptsFor = roster.settings.fpts + (roster.settings.fpts_decimal / 100);
+	const fptsPerGame = round(fptsFor / (wins + losses + ties));
+	// if(year==2018 || year==2019) {
+	// 	fptsPerGame = round(fptsFor / (roster.settings.wins + roster.settings.losses + roster.settings.ties));
+	// } else {
+	// 	fptsPerGame = round(fptsFor / ((roster.settings.wins + roster.settings.losses + roster.settings.ties)/2));
+	// }
+
 	const rosterRecords = {
-		// wins:  roster.settings.wins,
-		// losses:  roster.settings.losses,
-		// ties:  roster.settings.ties,
 		wins,
 		losses,
 		ties,
