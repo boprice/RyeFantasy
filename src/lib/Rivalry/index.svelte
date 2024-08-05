@@ -182,6 +182,8 @@
             <ComparissonBar sideOne={rivalry.wins.one} sideTwo={rivalry.wins.two} label="Wins" unit="wins" />
             <!-- points -->
             <ComparissonBar sideOne={parseFloat(round(rivalry.points.one))} sideTwo={parseFloat(round(rivalry.points.two))} label="Points" unit="pts" />
+            <!-- PPG -->
+            <ComparissonBar sideOne={parseFloat(round(rivalry.points.one/(rivalry.wins.one + rivalry.wins.two)))} sideTwo={parseFloat(round(rivalry.points.two/(rivalry.wins.one + rivalry.wins.two)))} label="Points per Game" unit="pts/game" />
             <h3>Matchups</h3>
             <RivalryControls bind:selected={selected} {year} {displayWeek} length={rivalry.matchups.length} />
             <Matchup key={`${playerOne}-${playerTwo}`} ix={selected} active={selected} {year} {matchup} players={playersInfo.players} {displayWeek} expandOverride={true} {leagueTeamManagers} />
