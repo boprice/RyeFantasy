@@ -40,6 +40,9 @@ Records.prototype.confirmManagerRecord = function(managerID) {
             wins: 0,
             losses: 0,
             ties: 0,
+            totalWins: 0,
+            totalLosses: 0,
+            totalTies: 0,
             fptsFor: 0,
             fptsAgainst: 0,
             potentialPoints: 0,
@@ -73,6 +76,9 @@ Records.prototype.confirmRosterRecord = function(rosterID) {
  * @param {number} recordsData.wins
  * @param {number} recordsData.losses
  * @param {number} recordsData.ties
+ * @param {number} recordsData.totalWins
+ * @param {number} recordsData.totalLosses
+ * @param {number} recordsData.totalTies
  * @param {number} recordsData.fptsPerGame
  * @param {number} recordsData.fptsFor
  * @param {number} recordsData.fptsAgainst
@@ -80,7 +86,7 @@ Records.prototype.confirmRosterRecord = function(rosterID) {
  * @param {number} recordsData.pOGames
  * @param {number} recordsData.byes
  */
-Records.prototype.updateManagerRecord = function(managers, {rosterID, year, wins, losses, ties, fptsPerGame, fptsFor, fptsAgainst, potentialPoints, pOGames, byes}) {
+Records.prototype.updateManagerRecord = function(managers, {rosterID, year, wins, losses, ties, totalWins, totalLosses, totalTies, fptsPerGame, fptsFor, fptsAgainst, potentialPoints, pOGames, byes}) {
     // check that a roster record has already been started for a given roster ID
     for(const managerID of managers) {
         this.confirmManagerRecord(managerID);
@@ -89,6 +95,9 @@ Records.prototype.updateManagerRecord = function(managers, {rosterID, year, wins
         this.leagueManagerRecords[managerID].wins += wins;
         this.leagueManagerRecords[managerID].losses += losses;
         this.leagueManagerRecords[managerID].ties += ties;
+        this.leagueManagerRecords[managerID].totalWins += totalWins;
+        this.leagueManagerRecords[managerID].totalLosses += totalLosses;
+        this.leagueManagerRecords[managerID].totalTies += totalTies;
         this.leagueManagerRecords[managerID].fptsFor += fptsFor;
         this.leagueManagerRecords[managerID].fptsAgainst += fptsAgainst;
         this.leagueManagerRecords[managerID].potentialPoints += potentialPoints;

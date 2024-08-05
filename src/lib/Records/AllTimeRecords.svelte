@@ -34,14 +34,14 @@
 
         for(const key in lRR) {
             const leagueManagerRecord = lRR[key];
-            const tDenominator = (leagueManagerRecord.tWins + leagueManagerRecord.tTies + leagueManagerRecord.tLosses) > 0 ? (leagueManagerRecord.tWins + leagueManagerRecord.tTies + leagueManagerRecord.tLosses) : 1;
+            const tDenominator = (leagueManagerRecord.totalWins + leagueManagerRecord.totalTies + leagueManagerRecord.totalLosses) > 0 ? (leagueManagerRecord.totalWins + leagueManagerRecord.totalTies + leagueManagerRecord.totalLosses) : 1;
             const denominator = (leagueManagerRecord.wins + leagueManagerRecord.ties + leagueManagerRecord.losses) > 0 ? (leagueManagerRecord.wins + leagueManagerRecord.ties + leagueManagerRecord.losses) : 1;
             winPercentages.push({
                 managerID: key,
-                percentage: round((leagueManagerRecord.tWins + leagueManagerRecord.tTies / 2) / tDenominator * 100),
-                wins: leagueManagerRecord.tWins,
-                ties: leagueManagerRecord.tTies,
-                losses: leagueManagerRecord.tLosses,
+                percentage: round((leagueManagerRecord.totalWins + leagueManagerRecord.totalTies / 2) / tDenominator * 100),
+                wins: leagueManagerRecord.totalWins,
+                ties: leagueManagerRecord.totalTies,
+                losses: leagueManagerRecord.totalLosses,
             })
 
             let lineupIQ = {
