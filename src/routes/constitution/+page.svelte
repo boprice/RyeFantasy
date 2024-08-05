@@ -4,7 +4,7 @@
     let one, oneOne, oneOneOne, oneTwo, oneTwoOne, oneTwoTwo, oneTwoThree, oneTwoFour, oneTwoFive, oneThree, oneFour;
     let two, twoOne, twoTwo, twoTwoTwo, twoThree, twoFour, twoFive;
     let three, threeOne;
-    let four, fourOne, fourTwo;
+    let four, fourOne, fourTwo, fourThree, fourFour;
     let five, fiveOne;
     let six, sixOne, sixTwo, sixThree;
     let seven, sevenOne, sevenTwo, sevenThree;
@@ -151,8 +151,6 @@
     <h3 class="subSectionHeading" bind:this={oneOne}>1.1 Positional Breakdown</h3>
     
     <p>28 Total Players</p>
-    
-    <!-- <p class="underscore">Starters</p> -->
     <ul>
         <li>QB</li>
         <li>RB</li>
@@ -163,13 +161,9 @@
         <li>FLEX</li>
         <li>FLEX</li>
     </ul>
-    
     <p>14 Bench</p>
-
     <p>3 IR Spots (Player must be labeled as IR, Out, or PUP in the Sleeper App.)</p>
-
     <p>3 Taxi Squad Spots(Player must be a Rookie or Sophomore.)</p>
-
 
 
     <h3 class="subSectionHeading" bind:this={oneTwo}>1.2 Taxi Squad</h3>
@@ -185,21 +179,19 @@
         </ul>
     </ul>
 
-
         
     <h3 class="subSectionHeading" bind:this={oneThree}>1.3 Trading</h3>
     
-    <p>Trades will process immediately.</p>
+    <p>Trades are allowed year round and will process immediately. We have all agreed to not be dorks that collude.</p>
 
     <ul>
         <li>Future rookie draft picks can be used in trades.</li>
         <ul>
-            <li>3 years ahead.</li>
-            <li>4 rounds per year.</li>
+            <li>3 years ahead</li>
+            <li>4 rounds per year</li>
         </ul>
         <li class="underscore">No Trade Deadline</li>
     </ul>
-    
     
     
     <h3 bind:this={oneFour}>1.4 Waiver Wire</h3>
@@ -207,7 +199,7 @@
     <p>FAAB Waiver wire system. $0 bids are allowed.</p>
     <p class="underscore">Daily Waivers</p>
     <ul>
-        <li>During the season:</li>
+        <li>In Season:</li>
         <ul>
             <li>Wed-Sat: Waivers process at 7PM EST</li>
             <li>Sun-Mon: Free Agents</li>
@@ -225,6 +217,7 @@
     <h3 bind:this={twoOne}>2.1 Regular Season</h3>
     <p>The regular season will be weeks 1-14.</p>
 
+
     <h3 bind:this={twoTwo}>2.2 Divisions</h3>
     <p>There will be 2 divisions, Top & Bottom. Top & Bottom will consist of the previous year's Top 5 and Bottom 5 finishers.</p>
     <p>The divisions will be set every year, based on the previous season's finishers.</p>
@@ -235,9 +228,11 @@
         <p>This should balance the schedules with the Bottom teams getting an "easier" schedule, only having to play the Top teams once each.</p>
     </div>
 
+
     <h3 bind:this={twoThree}>2.3 Rivals</h3>
     <p>The last week of the season will be "Rivals Week". The rivals have the potential to change every year, and will be narrative based. (ex. Colt vs Chris, because he's 0-10 lol)</p>
     <p>The rivals will be finalized pre-season, and will not change once the season begins.</p>
+
 
     <h3 bind:this={twoFour}>2.4 Median</h3>
     <p>Each team faces an extra matchup against the league's median score weekly. This levels the playing field by rewarding strong performances regardless of matchup luck.</p>
@@ -252,6 +247,7 @@
         <!-- <li>Check "Other Schedules" chart for evidence of lucky/unlucky schedules.</li> -->
     </ul>
 
+
     <h3 bind:this={twoFive}>2.5 Playoffs</h3>
     <p>Playoffs will be weeks 15-17. The top 6 teams, based on OVERALL record, will make the playoffs. The top 2 teams will receive a Round 1 bye. Each playoff matchup will only last one week and the winner will advance. Week 18 will not be used.</p>
     <p class="underscore">Seeding Tie Breakers:</p>
@@ -265,73 +261,46 @@
     </ol>
     <p>A playoff tie will go to the higher seed.</p>
 
-    
-    
-    <h2 class="sectionHeading" bind:this={two}>Section 2 Drafting</h2>
-    
-    <h3 bind:this={twoOne}>2.1 Draft Order</h3>
-    <p>The draft order each year will be a linear draft in reverse order of the previous year’s regular season standings.</p>
 
-    <h3 bind:this={twoTwo}>2.2 Rookie Drafts</h3>
-    <p>Rokkie drafts will consist of 3 round of drafting, with 5 minutes alotted for each pick. To make room for the incoming players, benches will be expanded by (5) spots. These spots will be removed in mid-August, at which point you will need to have cut the necessary players.</p>
-    <p>Any spots not filled during the draft, can be filled immediately afterwards from the waiver wire.</p>
-    
-    <h3 bind:this={twoThree}>2.3 Draft Day Trades</h3>
-    <p>If a trade is being made during the draft, one or both parties can alert the commissioner to pause the draft to allow for extra time to negotiate the trade.</p>
-    
+
+
     <h2 class="sectionHeading" bind:this={three}>Section 3 Scoring System</h2>
 
     <h3 bind:this={threeOne}>3.1 Scoring System</h3>
-    <p>The league scoring system breakdown is listed on the Sleeper fantasy app (for the most part, it follows typical .5PPR Scoring). The scoring system will never change without a majority league vote.</p>
+    <p>The league scoring system breakdown is listed on the Sleeper fantasy app (for the most part, it follows typical .5PPR Scoring).</p>
     
-    <h2 class="sectionHeading" bind:this={four}>Section 4 Postseason</h2>
-    
-    <h3 bind:this={fourOne}>4.1 Playoffs</h3>
-    <p>At the end of the season 6 teams will make the playoffs. The first round of playoffs will commence in week 15. Each team that wins their division and the 4 wild card teams that finish with the best records, will receive a playoff berth. The 2 teams that win their division will receive a bye week in the first round of the playoffs. Each playoff matchup will only last one week and the winner will advance. Week 18 will not be used.</p>
-    
-    <h3 bind:this={fourTwo}>4.2 Seeding Tiebreakers</h3>
-    <p>If two teams finish with the same record the tiebreakers will go as followed:</p>
 
-    <ol>
-        <li>Points For</li>
-        <li>Head 2 Head Record</li>
-        <li>Division Record</li>
-        <li>Total Points Against</li>
-        <li>Coin Flip</li>
-        <li>Duel to the death</li>
-    </ol>
+    
+    
+    <h2 class="sectionHeading" bind:this={four}>Section 4 Offseason</h2>
 
-    <h2 class="sectionHeading" bind:this={five}>Section 5 Tanking Policy</h2>
-    
-    <h3 bind:this={fiveOne}>5.1 League Tanking Policy</h3>
-    <p>No team may intentionally leave starting roster spots empty. Any evidence of intentionally leaving roster spots empty in order to improve your draft position may be subject to punishment, including but not limited to the forfeiture of draft selections.</p>
+    <h3 bind:this={fourOne}>4.1 League Renewal</h3>
+    <p>The league will be renewed after the championship game.</p>
+    <p>Waivers will be set to daily at 7PM EST. FAAB will be reset to $100.</p>
+    <p>The 3 IR slots will be converted to 3 bench spots due to the NFL not tracking injuries through the offseason.</p>
 
-    <h2 class="sectionHeading" bind:this={six}>Section 6 Replacing Managers</h2>
-    
-    <h3 bind:this={sixOne}>6.1 Removing Managers</h3>
-    <p>Short of continuously failing to set a valid lineup, or confirmed collusion, no manager can be removed against their will. Participation, through the league chat, trade offers, and the waiver wire, is strongly encouraged but generally grounds for removal.</p>
-    
-    <h3 bind:this={sixTwo}>6.2 Replacing Managers</h3>
-    <p>When a manager needs to be replaced, the commisiooners will try to find a suitable candidate with some connection to at least a portion of the existing managers. Priority will be placed on managers who are eager to take on a dynasty commitment and will be very active within the league.</p>
-    
-    <h3 bind:this={sixThree}>6.3 Replacement Incentive</h3>
-    <p>In the event that a manager chooses to quit the league or is removed by a comissioner, an incoming manager is offered a 50% reductioon on their first year buy-in.</p>
 
-    <h2 class="sectionHeading" bind:this={seven}>Section 7 League Finances</h2>
-    
-    <h3 bind:this={sevenOne}>7.1 League Dues</h3>
-    <p>League dues are set at {dues}$. Dues are collected through <a href="https://www.leaguesafe.com/league/3949641">LeagueSafe</a> and collection will be sent out no later than the first of August. All managers must be fully paid up before the start of regular season. In the event that a manager fails to pay before the deadline, a 10% penalty will be addd to their payment and will go towards the payouts at the end of the year.</p>
-    
-    <h3 bind:this={sevenTwo}>7.2 Payout</h3>
-    <p>League payout is structured as follows:</p>
+    <h3 bind:this={fourTwo}>4.2 Rookie Draft</h3>
+    <p>The Rookie Draft will be a linear draft, 4 rounds long, and take place after the NFL Draft.</p>
+    <p class="underscore">Draft Order:</p>
     <ul>
-        <li>1st place: {dues * 8}$</li>
-        <li>2nd place: {dues * 3}$</li>
-        <li>3rd place: {dues}$</li>
+        <li>1-4: Reverse order of regular season finish</li>
+        <li>5-6: Teams eliminated Round 1, reverse order of regular season finish</li>
+        <li>7-8: Teams eliminated in the Semifinals, reverse order of regular season finish</li>
+        <li>9: Championship loser</li>
+        <li>10: Champion</li>
     </ul>
-    <p>In the event that a manager was fined due to late payment, their extra fee will be added to the winner's payout. Similarly, if new managers come into the league and the payout is smaller, the difference will come out of the winner's prize.</p>
+    <p>Roster size will increase by x amount (dependent on who has the most picks).</p>
+    <p>FAAB will be reset to $100 once Rookie Draft concludes.</p>
+
     
-    <h3 bind:this={sevenThree}>7.3 Raising Dues</h3>
-    <p>A ⅔ majority vote is required in order to raise league dues. In the event that a manager is no longer financially comfortable with the buyin, finding a co-manager to split the cost is reccomended.</p>
+    <h3 bind:this={fourThree}>4.3 Roster Cuts</h3>
+    <p>There will be 3 cut weeks leading up the the regular season to get the bench back down to 14 spots.</p>
+    <p class="underscore">If you do not have a valid lineup once Week 1 begins, you will take an 0-2 loss for your Week 1 game.</p>
+
+
+    <h3 bind:this={fourFour}>4.4 Regular Season Start</h3>
+    <p>The 3 IR slots will be converted back the week of the regular season start.</p>
+    <p>Waivers set back to In Season settings and FAAB is reset to $100.</p>
 
 </div>
