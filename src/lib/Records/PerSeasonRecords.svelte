@@ -71,10 +71,10 @@
                 // add win percentage rankings
                 yearsObj[season.year].winPercentages.push({
                     rosterID,
-                    percentage: round((season.totalWins + season.totalTies / 2) / (season.totalWins + season.totalTies + season.totalLosses) * 100),
-                    wins: season.totalWins,
-                    ties: season.totalTies,
-                    losses: season.totalLosses,
+                    percentage: round((leagueManagerRecord.totalWins + leagueManagerRecord.totalTies / 2) / (leagueManagerRecord.totalWins + leagueManagerRecord.totalTies + leagueManagerRecord.totalLosses) * 100),
+                    wins: leagueManagerRecord.totalWins,
+                    ties: leagueManagerRecord.totalTies,
+                    losses: leagueManagerRecord.totalLosses,
                 })
 
                 // add lineup IQ rankings
