@@ -71,20 +71,11 @@
                 // add win percentage rankings
                 yearsObj[season.year].winPercentages.push({
                     rosterID,
-                    percentage: round((season.wins + season.ties / 2) / (season.wins + season.ties + season.losses) * 100),
-                    wins: season.wins,
-                    ties: season.ties,
-                    losses: season.losses,
+                    percentage: round((season.totalWins + season.totalTies / 2) / (season.totalWins + season.totalTies + season.totalLosses) * 100),
+                    wins: season.totalWins,
+                    ties: season.totalTies,
+                    losses: season.totalLosses,
                 })
-
-                // calculates wins correctly but not playoffs
-                // yearsObj[season.year].winPercentages.push({
-                //     rosterID,
-                //     percentage: round((season.totalWins + season.totalTies / 2) / (season.totalWins + season.totalTies + season.totalLosses) * 100),
-                //     wins: season.totalWins,
-                //     ties: season.totalTies,
-                //     losses: season.totalLosses,
-                // })
 
                 // add lineup IQ rankings
                 let lineupIQ = {
