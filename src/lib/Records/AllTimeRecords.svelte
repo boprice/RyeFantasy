@@ -80,7 +80,7 @@
 
         winPercentages.sort((a, b) => b.percentage - a.percentage);
         lineupIQs.sort((a, b) => b.iq - a.iq);
-        fptsHistories.sort((a, b) => b.fptsFor - a.fptsFor);
+        fptsHistories.sort((a, b) => b.fptsPerGame - a.fptsPerGame);
         tradesData.sort((a, b) => b.trades - a.trades);
         waiversData.sort((a, b) => b.waivers - a.waivers);
     }
