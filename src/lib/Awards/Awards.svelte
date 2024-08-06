@@ -329,7 +329,7 @@
 <div class="awards">
 	<h3>{year} Awards</h3>
 
-	<img src="/banner.png" class="banner" alt="The Champion's Cup" />
+	<img src="/banner.png" class="banner" alt="" />
 
 	<div id="podium">
 		<img src="/podium.png" class="podiumImage" alt="podium" />
