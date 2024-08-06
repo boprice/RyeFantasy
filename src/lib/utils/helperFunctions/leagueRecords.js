@@ -306,6 +306,9 @@ const processMatchups = ({matchupWeek, seasonPointsRecord, record, startWeek, ma
                     wins: 0,
                     losses: 0,
                     ties: 0,
+					totalWins: 0,
+					totalLosses: 0,
+					totalTies: 0,
                     fptsFor: 0,
                     fptsAgainst: 0,
                     potentialPoints: 0,
@@ -370,11 +373,11 @@ const processMatchups = ({matchupWeek, seasonPointsRecord, record, startWeek, ma
 
 		// handle post-season data
 		if(matchupKey.split(":")[0] == "PS") {
-            pSD[home.rosterID].wins = 1;
+            pSD[home.rosterID].totalWins = 1;
             pSD[home.rosterID].fptsFor = home.fpts;
             pSD[home.rosterID].fptsAgainst = away.fpts;
             
-            pSD[away.rosterID].losses = 1;
+            pSD[away.rosterID].totalLosses = 1;
             pSD[away.rosterID].fptsFor = away.fpts;
             pSD[away.rosterID].fptsAgainst = home.fpts;
 		}
@@ -421,7 +424,7 @@ const processPlayoffs = async ({curSeason, playoffRecords, year, week, rosters})
 
 	for(const rosterID in postSeasonData) {
 		const pSD = postSeasonData[rosterID];
-		const fptsPerGame = round(pSD.fptsFor / (pSD.wins + pSD.losses + pSD.ties));
+		const fptsPerGame = round(pSD.fptsFor / (pSD.totalWins + pSD.totalLosses + pSD.totalTies));
 		pSD.fptsPerGame = fptsPerGame;
 		pSD.year = year;
 		pSD.rosterID = rosterID;
