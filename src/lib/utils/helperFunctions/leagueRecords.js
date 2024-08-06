@@ -240,11 +240,6 @@ const analyzeRosters = ({year, roster, regularSeason}) => {
 	// fptsFor and fptsPerGame are used for both rosterRecords and seasonLongPoints
 	const fptsFor = roster.settings.fpts + (roster.settings.fpts_decimal / 100);
 	const fptsPerGame = round(fptsFor / (wins + losses + ties));
-	// if(year==2018 || year==2019) {
-	// 	fptsPerGame = round(fptsFor / (roster.settings.wins + roster.settings.losses + roster.settings.ties));
-	// } else {
-	// 	fptsPerGame = round(fptsFor / ((roster.settings.wins + roster.settings.losses + roster.settings.ties)/2));
-	// }
 
 	// Create totalWins, totalLosses, and totalTies for including all games in win percentage calculations
 
@@ -306,9 +301,9 @@ const processMatchups = ({matchupWeek, seasonPointsRecord, record, startWeek, ma
                     wins: 0,
                     losses: 0,
                     ties: 0,
-					totalWins: 0,
-					totalLosses: 0,
-					totalTies: 0,
+					// totalWins: 0,
+					// totalLosses: 0,
+					// totalTies: 0,
                     fptsFor: 0,
                     fptsAgainst: 0,
                     potentialPoints: 0,
@@ -373,11 +368,13 @@ const processMatchups = ({matchupWeek, seasonPointsRecord, record, startWeek, ma
 
 		// handle post-season data
 		if(matchupKey.split(":")[0] == "PS") {
-            pSD[home.rosterID].totalWins = 1;
+            pSD[home.rosterID].wins = 1;
+            // pSD[home.rosterID].totalWins = 1;
             pSD[home.rosterID].fptsFor = home.fpts;
             pSD[home.rosterID].fptsAgainst = away.fpts;
             
-            pSD[away.rosterID].totalLosses = 1;
+            pSD[away.rosterID].losses = 1;
+            // pSD[away.rosterID].totalLosses = 1;
             pSD[away.rosterID].fptsFor = away.fpts;
             pSD[away.rosterID].fptsAgainst = home.fpts;
 		}
@@ -424,7 +421,8 @@ const processPlayoffs = async ({curSeason, playoffRecords, year, week, rosters})
 
 	for(const rosterID in postSeasonData) {
 		const pSD = postSeasonData[rosterID];
-		const fptsPerGame = round(pSD.fptsFor / (pSD.totalWins + pSD.totalLosses + pSD.totalTies));
+		const fptsPerGame = round(pSD.fptsFor / (pSD.wins + pSD.losses + pSD.ties));
+		// const fptsPerGame = round(pSD.fptsFor / (pSD.totalWins + pSD.totalLosses + pSD.totalTies));
 		pSD.fptsPerGame = fptsPerGame;
 		pSD.year = year;
 		pSD.rosterID = rosterID;
