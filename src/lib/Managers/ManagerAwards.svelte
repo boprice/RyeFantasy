@@ -16,6 +16,9 @@
         if(!managerID || !year || !awardRosterID) {
             return awardRosterID == userRosterID;
         }
+        if (year === '2018' && userRosterID === '1' && awardRosterID === 10) {
+            return true;
+        }
         return checkIfManagerReceivedAward(leagueTeamManagers, awardRosterID, year, managerID);
     }
 
@@ -219,18 +222,33 @@
                 if (former) {
                 formerGlobal = true;
                 }
-                displayAwards.push({
-                award: capitalizeFirstLetter(award),
-                icon: "/awards/" + award + ".png",
-                type: "award",
-                originalName: getTeamNameFromTeamManagers(
-                    leagueTeamManagers,
-                    cRosterID,
-                    podium.year
-                ),
-                year: podium.year,
-                former,
-                });
+                if (award == "second" && podium.year == 2022) {
+                    displayAwards.push({
+                        award: "Champion",
+                        icon: "/awards/champion.png",
+                        type: "award",
+                        originalName: getTeamNameFromTeamManagers(
+                        leagueTeamManagers,
+                        cRosterID,
+                        podium.year
+                        ),
+                        year: podium.year,
+                        former,
+                    });
+                } else {
+                    displayAwards.push({
+                        award: capitalizeFirstLetter(award),
+                        icon: "/awards/" + award + ".png",
+                        type: "award",
+                        originalName: getTeamNameFromTeamManagers(
+                            leagueTeamManagers,
+                            cRosterID,
+                            podium.year
+                        ),
+                        year: podium.year,
+                        former,
+                    });
+                }
             }
             }
         }
