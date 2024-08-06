@@ -336,14 +336,14 @@
 
 		<!-- champs -->
 		<!-- Add check for 2022 to add co-champs -->
-		{#if year === 2022}
+		{#if Number(year) === 2022}
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<img src="" class="first champ" alt="champion" />
+			<img src="/boyacob.png" class="first champ" alt="champion" />
 			<img src="/laurel.png" class="laurel" alt="laurel" />
-			<span class="label firstLabel">{@html getNestedTeamNamesFromTeamManagers(leagueTeamManagers, year, champion)}</span>
+			<span class="label firstLabel">Bo & Yacob</span>
 
-			<img src="" class="second champ" alt="2nd" />
-			<span class="label secondLabel">{@html getNestedTeamNamesFromTeamManagers(leagueTeamManagers, year, second)}</span>
+			<img src="/hamlin.jpg" class="second champ" alt="2nd" />
+			<span class="label secondLabel">Damar Hamlin</span>
 
 		{:else}
 			<img src="{getAvatarFromTeamManagers(leagueTeamManagers, champion, year)}" class="first champ clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: champion})} alt="champion" />
@@ -355,12 +355,12 @@
 
 		{/if}
 
-		<img src="{getAvatarFromTeamManagers(leagueTeamManagers, champion, year)}" class="first champ clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: champion})} alt="champion" />
+		<!-- <img src="{getAvatarFromTeamManagers(leagueTeamManagers, champion, year)}" class="first champ clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: champion})} alt="champion" />
 		<img src="/laurel.png" class="laurel" alt="laurel" />
 		<span class="label firstLabel clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: champion})}>{@html getNestedTeamNamesFromTeamManagers(leagueTeamManagers, year, champion)}</span>
 
 		<img src="{getAvatarFromTeamManagers(leagueTeamManagers, second, year)}" class="second champ clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: second})} alt="2nd" />
-		<span class="label secondLabel clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: second})}>{@html getNestedTeamNamesFromTeamManagers(leagueTeamManagers, year, second)}</span>
+		<span class="label secondLabel clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: second})}>{@html getNestedTeamNamesFromTeamManagers(leagueTeamManagers, year, second)}</span> -->
 
 		<img src="{getAvatarFromTeamManagers(leagueTeamManagers, third, year)}" class="third champ clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: third})} alt="3rd" />
 		<span class="label thirdLabel clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: third})}>{@html getNestedTeamNamesFromTeamManagers(leagueTeamManagers, year, third)}</span>
