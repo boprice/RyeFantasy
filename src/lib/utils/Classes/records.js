@@ -98,6 +98,7 @@ Records.prototype.updateManagerRecord = function(managers, {rosterID, year, wins
         this.leagueManagerRecords[managerID].totalWins += totalWins;
         this.leagueManagerRecords[managerID].totalLosses += totalLosses;
         this.leagueManagerRecords[managerID].totalTies += totalTies;
+        this.leagueManagerRecords[managerID].fptsPerGame += fptsPerGame;
         this.leagueManagerRecords[managerID].fptsFor += fptsFor;
         this.leagueManagerRecords[managerID].fptsAgainst += fptsAgainst;
         this.leagueManagerRecords[managerID].potentialPoints += potentialPoints;

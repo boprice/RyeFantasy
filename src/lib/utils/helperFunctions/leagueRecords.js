@@ -370,11 +370,13 @@ const processMatchups = ({matchupWeek, seasonPointsRecord, record, startWeek, ma
 		if(matchupKey.split(":")[0] == "PS") {
             // pSD[home.rosterID].wins = 1;
             pSD[home.rosterID].totalWins = 1;
+            pSD[home.rosterID].wins = 1;
             pSD[home.rosterID].fptsFor = home.fpts;
             pSD[home.rosterID].fptsAgainst = away.fpts;
             
             // pSD[away.rosterID].losses = 1;
             pSD[away.rosterID].totalLosses = 1;
+            pSD[away.rosterID].losses = 1;
             pSD[away.rosterID].fptsFor = away.fpts;
             pSD[away.rosterID].fptsAgainst = home.fpts;
 		}
@@ -486,8 +488,6 @@ const digestBracket = ({bracket, playoffRecords, playoffRounds, matchupDifferent
 			}
 		}
 		const {sPR, mD, pSD} =  processMatchups({matchupWeek, seasonPointsRecord, record: playoffRecords, startWeek, matchupDifferentials, year})
-
-		postSeasonData = meshPostSeasonData(postSeasonData, pSD);
 
 		postSeasonData = meshPostSeasonData(postSeasonData, pSD);
 		seasonPointsRecord = sPR;
