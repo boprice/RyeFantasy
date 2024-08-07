@@ -151,6 +151,7 @@
     <h3 class="subSectionHeading" bind:this={oneOne}>1.1 Positional Breakdown</h3>
     
     <p>28 Total Players</p>
+    <p>8 Starters:</p>
     <ul>
         <li>QB</li>
         <li>RB</li>
@@ -162,8 +163,8 @@
         <li>FLEX</li>
     </ul>
     <p>14 Bench</p>
-    <p>3 IR Spots (Player must be labeled as IR, Out, or PUP in the Sleeper App.)</p>
-    <p>3 Taxi Squad Spots(Player must be a Rookie or Sophomore.)</p>
+    <p>3 IR (Player must be labeled as IR, Out, or PUP on Sleeper.)</p>
+    <p>3 Taxi Squad</p>
 
 
     <h3 class="subSectionHeading" bind:this={oneTwo}>1.2 Taxi Squad</h3>
@@ -201,11 +202,11 @@
     <ul>
         <li>In Season:</li>
         <ul>
-            <li>Wed-Sat: Waivers process at 7PM EST</li>
+            <li>Tue-Sat: Waivers process at 7PM EST</li>
             <li>Sun-Mon: Free Agents</li>
             <li>Players still lock at gametime, and will be available for the Tuesday night waivers.</li>
         </ul>
-        <li>Offseason: Everyday at 7PM EST</li>
+        <li>Offseason: Every day at 7PM EST</li>
     </ul>
 
     <p>FAAB budgets will reset at the start of the season, start of the offseason, & after the rookie draft.</p>
@@ -225,7 +226,7 @@
     <h4 bind:this={twoTwoTwo}>2.2.2 Division Schedules</h4>
     <div class="subBlock">
         <p>You will play your division teams 2 times per year, and non-division teams 1 time per year.</p>
-        <p>This should balance the schedules with the Bottom teams getting an "easier" schedule, only having to play the Top teams once each.</p>
+        <p>This should balance the schedules with the Bottom teams getting an "easier" schedule, only having to play the Top teams one time each.</p>
     </div>
 
 
@@ -239,17 +240,19 @@
     <ul>
         <li>2-0 and 0-2 is the exact same as 1-0 and 0-1 in a league without the median.</li>
         <li>1-1 is the only new outcome:</li>
-        <ul>
+        <ol>
             <li>Lost head to head but beat the median. This is good, you scored great but got shafted by an unlucky schedule.</li>
             <li>Won head to head but lost to the median. You got lucky on the schedule, but you still scored poorly. This is the only "bad" outcome.</li>
-        </ul>
+        </ol>
         <!-- ADD AFTER LINKING GOOGLE SHEETS TO WEBSITE -->
         <!-- <li>Check "Other Schedules" chart for evidence of lucky/unlucky schedules.</li> -->
     </ul>
 
 
     <h3 bind:this={twoFive}>2.5 Playoffs</h3>
-    <p>Playoffs will be weeks 15-17. The top 6 teams, based on OVERALL record, will make the playoffs. The top 2 teams will receive a Round 1 bye. Each playoff matchup will only last one week and the winner will advance. Week 18 will not be used.</p>
+    <p>Playoffs will be weeks 15-17. The top 6 teams, based on OVERALL record, will make the playoffs.</p>
+    <p>The top 2 teams will receive a Round 1 bye. Each playoff matchup will only last one week and the winner will advance.</p>
+    <p>Week 18 will not be used.</p>
     <p class="underscore">Seeding Tie Breakers:</p>
     <ol>
         <li>Points For</li>
@@ -267,7 +270,40 @@
     <h2 class="sectionHeading" bind:this={three}>Section 3 Scoring System</h2>
 
     <h3 bind:this={threeOne}>3.1 Scoring System</h3>
-    <p>The league scoring system breakdown is listed on the Sleeper fantasy app (for the most part, it follows typical .5PPR Scoring).</p>
+    <p class="underscore">Passing</p>
+    <ul>
+        <li>Per Yard: 0.05</li>
+        <li>Int: -3</li>
+        <li>40+ Yard Completion: 1</li>
+        <li>40+ Yard TD: 1</li>
+    </ul>
+
+    <p class="underscore">Rushing</p>
+    <ul>
+        <li>Per Yard: 0.1</li>
+        <li>40+ Yard Rush: 2</li>
+        <li>40+ Yard TD: 1</li>
+    </ul>
+
+    <p class="underscore">Receiving</p>
+    <ul>
+        <li>Per Yard: 0.1</li>
+        <li>PPR: 0.5</li>
+        <li>40+ Yard Rec: 1</li>
+        <li>40+ Yard TD: 1</li>
+    </ul>
+
+    <p class="underscore">Misc</p>
+    <ul>
+        <li>TD: 6</li>
+        <li>2pt Conv: 2</li>
+        <li>Fumble: -1</li>
+        <li>Fumble: -1</li>
+        <li>Punt Return Per Yard: 0.1</li>
+        <li>Kick Return Per Yard: 0.05</li>
+    </ul>
+
+    <p>Scoring settings can also be viewed on Sleeper.</p>
     
 
     
@@ -275,7 +311,7 @@
     <h2 class="sectionHeading" bind:this={four}>Section 4 Offseason</h2>
 
     <h3 bind:this={fourOne}>4.1 League Renewal</h3>
-    <p>The league will be renewed after the championship game.</p>
+    <p>The league will be renewed after the championship game has been finalized.</p>
     <p>Waivers will be set to daily at 7PM EST. FAAB will be reset to $100.</p>
     <p>The 3 IR slots will be converted to 3 bench spots due to the NFL not tracking injuries through the offseason.</p>
 
@@ -300,7 +336,7 @@
 
 
     <h3 bind:this={fourFour}>4.4 Regular Season Start</h3>
-    <p>The 3 IR slots will be converted back the week of the regular season start.</p>
+    <p>3 Bench slots will be converted back to IR slots.</p>
     <p>Waivers set back to In Season settings and FAAB is reset to $100.</p>
 
 </div>
