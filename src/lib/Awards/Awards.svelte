@@ -337,7 +337,6 @@
 		<!-- champs -->
 		<!-- Add check for 2022 to add co-champs -->
 		{#if Number(year) === 2022}
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<img src="/boyacob.png" class="first champ" alt="champion" />
 			<img src="/laurel.png" class="laurel" alt="laurel" />
 			<span class="label firstLabel">Bo & Yacob</span>
@@ -355,15 +354,9 @@
 
 		{/if}
 
-		<!-- <img src="{getAvatarFromTeamManagers(leagueTeamManagers, champion, year)}" class="first champ clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: champion})} alt="champion" />
-		<img src="/laurel.png" class="laurel" alt="laurel" />
-		<span class="label firstLabel clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: champion})}>{@html getNestedTeamNamesFromTeamManagers(leagueTeamManagers, year, champion)}</span>
-
-		<img src="{getAvatarFromTeamManagers(leagueTeamManagers, second, year)}" class="second champ clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: second})} alt="2nd" />
-		<span class="label secondLabel clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: second})}>{@html getNestedTeamNamesFromTeamManagers(leagueTeamManagers, year, second)}</span> -->
-
 		<img src="{getAvatarFromTeamManagers(leagueTeamManagers, third, year)}" class="third champ clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: third})} alt="3rd" />
 		<span class="label thirdLabel clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: third})}>{@html getNestedTeamNamesFromTeamManagers(leagueTeamManagers, year, third)}</span>
+
 	</div>
 	<div class="divisions">
 		{#each divisions as division}
@@ -374,11 +367,19 @@
 					{:else}
 						<h6>Regular Season Champion</h6>
 					{/if}
-					<div class="leaderBlock">
-						<img src="{getAvatarFromTeamManagers(leagueTeamManagers, division.rosterID, year)}" class="divisionLeader clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: division.rosterID})} alt="{division.name} champion" />
-						<img src="/medal.png" class="medal" alt="champion" />
-					</div>
-					<span class="genLabel clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: division.rosterID})}>{@html getNestedTeamNamesFromTeamManagers(leagueTeamManagers, year, division.rosterID)}</span>
+					<!-- Add check for 2018 human garbage. -->
+					{#if Number(year) === 2018}
+						<div class="leaderBlock">
+							<img src="/garbage.png" class="divisionLeader" alt="cheater" />
+						</div>
+						<span class="genLabel">Cheater</span>
+					{:else}
+						<div class="leaderBlock">
+							<img src="{getAvatarFromTeamManagers(leagueTeamManagers, division.rosterID, year)}" class="divisionLeader clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: division.rosterID})} alt="{division.name} champion" />
+							<img src="/medal.png" class="medal" alt="champion" />
+						</div>
+						<span class="genLabel clickable" on:click={() => gotoManager({year, leagueTeamManagers, rosterID: division.rosterID})}>{@html getNestedTeamNamesFromTeamManagers(leagueTeamManagers, year, division.rosterID)}</span>
+					{/if}
 				</div>
 			{/if}
 		{/each}
