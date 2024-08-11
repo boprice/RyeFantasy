@@ -201,7 +201,7 @@ export const managers = [
     "managerID" : "444932831391510528",
     "name": "Chase",
     "location": "Hometown", // (optional)
-    "bio": "Took over the 2nd worst team in year 2, and made it the 2nd best team. After taking 2 years to rebuild the garbage left to him, he has come in 2nd in 2 out of 3 years. (Is this dude obsessed with the number 2 or something?) He is also the only manager, other than Yacob, to lose in a championship game! Thanks for keeping that between the <b>2<b/> of you!",
+    "bio": "Took over the 2nd worst team in year 2, and made it the 2nd best team. After taking 2 years to rebuild the garbage left to him, he has come in 2nd in 2 out of 3 years. (Is this dude obsessed with the number 2 or something?) He is also the only manager, other than Yacob, to lose in a championship game! Thanks for keeping that between the <b><u>2</u></b> of you!",
     "photo": "/../managers/chase.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": "tb", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
