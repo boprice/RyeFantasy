@@ -88,14 +88,14 @@
     $: tradeHistory = setTradeHistory(playerOne, playerTwo);
 
     const performanceOrderOne = [
-        {field: "wins", label: "Wins", unit: "wins"},
-        {field: "losses", label: "Losses", unit: "losses"},
-        {field: "ties", label: "Ties", unit: "ties"},
+        {field: "totalWins", label: "Wins", unit: "wins"},
+        {field: "totalLosses", label: "Losses", unit: "losses"},
+        {field: "totalTies", label: "Ties", unit: "ties"},
     ]
 
     const performanceOrderTwo = [
-        {field: "fptsFor", label: "Fantasy Points For", unit: "fpts"},
-        {field: "fptsAgainst", label: "Fantasy Points Against", unit: "fpts against"},
+        {field: "fptsFor", label: "Points For", unit: "fpts"},
+        {field: "fptsAgainst", label: "Points Against", unit: "fpts against"},
     ]
 
     $: playerOneRecords = recordsInfo?.regularSeasonData?.leagueManagerRecords ? recordsInfo.regularSeasonData.leagueManagerRecords[playerOne] : null;
@@ -183,22 +183,19 @@
                 sideOne={rivalry.wins.one} 
                 sideTwo={rivalry.wins.two} 
                 label="Wins" 
-                unit="wins" 
-            />
-            <!-- points -->
-            <ComparissonBar 
-                sideOne={parseFloat(rivalry.points.one).toFixed(2)} 
-                sideTwo={parseFloat(rivalry.points.two).toFixed(2)} 
-                label="Points" 
-                unit="pts" 
-            />
+                unit="wins" />
             <!-- PPG -->
             <ComparissonBar 
                 sideOne={Math.round(rivalry.points.one/(rivalry.wins.one + rivalry.wins.two))} 
                 sideTwo={Math.round(rivalry.points.two/(rivalry.wins.one + rivalry.wins.two))} 
                 label="Points per Game" 
-                unit="pts/game" 
-            />
+                unit="pts/game" />
+            <!-- points -->
+            <ComparissonBar 
+                sideOne={parseFloat(rivalry.points.one)} 
+                sideTwo={parseFloat(rivalry.points.two)} 
+                label="Total Points" 
+                unit="pts" />
             <h3>Matchups</h3>
             <RivalryControls bind:selected={selected} {year} {displayWeek} length={rivalry.matchups.length} />
             <Matchup key={`${playerOne}-${playerTwo}`} ix={selected} active={selected} {year} {matchup} players={playersInfo.players} {displayWeek} expandOverride={true} {leagueTeamManagers} />
@@ -246,7 +243,7 @@
                 sideTwo={parseFloat(round(
                     playerTwoRecords.fptsFor/(playerTwoRecords.wins + playerTwoRecords.ties + playerTwoRecords.losses)
                     ))}
-                label="Fantasy Points per Game"
+                label="Points per Game"
                 unit="fpts/game"
             />
             {#each performanceOrderTwo as stat }
