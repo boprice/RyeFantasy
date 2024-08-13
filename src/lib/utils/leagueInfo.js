@@ -25,7 +25,7 @@ export const managers = [
     "managerID" : "31152355404038144",
     "name": "Bo",
     "location": "Florida", // (optional)
-    "bio": "The absolute best team at losing in the Semi-Finals. Nobody does it better.",
+    "bio": "A third of the world famous Respect Your Elders! Thinks that the whole point is to trade as many times as possible. Proud owner of the curse to lose in the semi-finals every year. Fun fact: he didn't lose in the semi-finals one time after utilyzing elder magic (now banned), one week later a man died during the championship game... Bo lost in the semi-finals the following year.",
     "photo": "/../managers/bo.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": null, // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
@@ -47,7 +47,7 @@ export const managers = [
     "managerID" : "204490274854932480",
     "name": "Kev",
     "location": "Colorado", // (optional)
-    "bio": "Fellow Elder that knows how to lineup MVP seasons all at once.",
+    "bio": "Fellow Elder that knows how to line up triple MVP seasons, now having done it twice. Shockingly, he won a championship both of those years. All of those MVP candidates were picked in the original draft all the way back in 2018, so nobody else has had a chance at that kind of fun.",
     "photo": "/../managers/kev.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": "car", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
@@ -60,7 +60,7 @@ export const managers = [
     "favoritePlayer": 4034, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     "valuePosition": "WR", // (optional) Favorite position (QB, WR, RB, TE, etc.)
     "rookieOrVets": null, // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
-    "philosophy": "Simply have 3 MVPs, duh.",
+    "philosophy": "Just have 3 MVPs, this isn't that hard.",
     "tradingScale": 9, // 1 - 10
     "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
@@ -69,7 +69,7 @@ export const managers = [
     "managerID" : "204748714156228608",
     "name": "Yacob",
     "location": "Colorado", // (optional)
-    "bio": "Fellow Elder who holds the record for most championship losses.",
+    "bio": "The third Elder and who holds the record for most championship losses! He's been to the championship 4 times, having 3 losses and 1 tie (due to the man dying after Bo used banned magic). He is also the best advertiser in the league, having made countless commercials for the Elders, all being instant classics.",
     "photo": "/../managers/yacob.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": "jax", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
@@ -82,7 +82,7 @@ export const managers = [
     "favoritePlayer": 7523, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     "valuePosition": null, // (optional) Favorite position (QB, WR, RB, TE, etc.)
     "rookieOrVets": null, // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
-    "philosophy": "Get to the championship game, unsure after that.",
+    "philosophy": "Step 1: Make it to the championship. Step 2: (TBD).",
     "tradingScale": 7, // 1 - 10
     "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
@@ -91,7 +91,7 @@ export const managers = [
     "managerID" : "204301500732678144",
     "name": "Chris",
     "location": "KC", // (optional)
-    "bio": "Hardest person to hate and takes advantage of it by annoyingly winning back to back championships.",
+    "bio": "The nicest person a person can be, and the only back to back championship in the league. This is super annoying to everyone, because you can't even be angry at a guy this nice. Famous for his double tight end strategy that Colt (the guy who is 0-10 vs him) has tried to get removed from the league. 1 of only 3 managers who have made the playoffs all 6 years.",
     "photo": "/../managers/chris.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": "kc", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
@@ -113,7 +113,7 @@ export const managers = [
     "managerID" : "204489680073261056",
     "name": "Colt",
     "location": "Georgia", // (optional)
-    "bio": "Created the best trade example to negate all arguments for vetoing trades. Won a championship because of it.",
+    "bio": "The creator of the hit series, 'Get Grilled!', due to being voted to finish 9th in the 2023 season. He proved everyone WRONG after actually finishing 8th! He was also a part of the best trade example to negate all arguments for vetoing trades, and won the first championship because of it! (vs the guy he traded... it was Yacob).",
     "photo": "/../managers/colt.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": null, // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
@@ -126,7 +126,7 @@ export const managers = [
     "favoritePlayer": 1426, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     "valuePosition": null, // (optional) Favorite position (QB, WR, RB, TE, etc.)
     "rookieOrVets": null, // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
-    "philosophy": "Who even needs 2 championships?",
+    "philosophy": "Championships are old news, I'm all about the grill.",
     "tradingScale": 6, // 1 - 10
     "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
@@ -135,7 +135,7 @@ export const managers = [
     "managerID" : "205583362516066304",
     "name": "Aaron",
     "location": "Hometown", // (optional)
-    "bio": "The only manager that can have one of the scariest team and consistently fight for the last playoff spot.",
+    "bio": "Looking at his team you would consider him a lock for the playoffs, but he likes to keep it interesting by fighting for one of the last spots every year (a real Showman). Once in the playoffs, he is the owner of the super fun curse to lose in round 1 of the playoffs every time.  Needs to secure that round 1 bye to try out another round of playoffs.",
     "photo": "/../managers/aaron.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": null, // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
@@ -157,7 +157,7 @@ export const managers = [
     "managerID" : "301862141642674176",
     "name": "Alex",
     "location": "Georgia", // (optional)
-    "bio": "Took Blake Bortles round 1 in the startup draft. That's all you need to know.",
+    "bio": "Alex has yet to make the playoffs, but he's one of the scariest teams to face. Proud creator of the Alexpocalypse, a storm that WILL hit at some point in the season at an unkown time vs an unfortunate soul. If he were to make the playoffs, nobody would want to be on that side of the bracket.",
     "photo": "/../managers/alex.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": "jax", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
@@ -179,11 +179,11 @@ export const managers = [
     "managerID" : "206162149335105536",
     "name": "Mierr",
     "location": "Texas...For now...", // (optional)
-    "bio": "An OG manager that ran his team into the ground, quit, and then came back to a better team.",
+    "bio": "An OG manager that ran his team into the ground, quit, and then came back to a better team. His wins coincide directly with Josh Allen's good games (Unfortunately for the rest of the league, that's a lot of games). Makes some questionable decisions, but does so confidently!",
     "photo": "/../managers/mierr.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": null, // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
-    "mode": null, // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
+    "mode": "Win Now", // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
     "rival": {
       name: "Commitment", // Can be anything (usually your rival's name)
       link: 7, // manager array number within this array, or null to link back to all managers page
@@ -192,7 +192,7 @@ export const managers = [
     "favoritePlayer": 4984, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     "valuePosition": null, // (optional) Favorite position (QB, WR, RB, TE, etc.)
     "rookieOrVets": null, // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
-    "philosophy": "When the going gets tough, the tough quit and come back.",
+    "philosophy": "When the going gets tough, the tough quit and come back later.",
     "tradingScale": 7, // 1 - 10
     "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
@@ -201,7 +201,7 @@ export const managers = [
     "managerID" : "444932831391510528",
     "name": "Chase",
     "location": "Hometown", // (optional)
-    "bio": "Took over the 2nd worst team and made it the 2nd best team.",
+    "bio": "Took over the 2nd worst team in year 2, and made it the 2nd best team. After taking 2 years to rebuild the garbage left to him, he has come in 2nd in 2 out of 3 years. (Is this dude obsessed with the number 2 or something?) He is also the only manager, other than Yacob, to lose in a championship game! Thanks for keeping that between the <b><u>2</u></b> of you!",
     "photo": "/../managers/chase.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": "tb", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
@@ -211,10 +211,10 @@ export const managers = [
       link: 5, // manager array number within this array, or null to link back to all managers page
       image: "/../managers/aaron.png", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
-    "favoritePlayer": null, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
+    "favoritePlayer": 2216, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     "valuePosition": null, // (optional) Favorite position (QB, WR, RB, TE, etc.)
     "rookieOrVets": null, // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
-    "philosophy": "One man's trash is another man's siler medals.",
+    "philosophy": "One man's trash is another man's silver medals.",
     "tradingScale": 8, // 1 - 10
     "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
@@ -223,7 +223,7 @@ export const managers = [
     "managerID" : "474402098453147648",
     "name": "Garrett",
     "location": "Hometown", // (optional)
-    "bio": "Took over Mierr's team when he quit and looks to be catching Mierr's new team in no time.",
+    "bio": "Took over Mierr's team when he quit and is following Chase's blueprint to get his team to the top. He's already created a juggernaut of a defense where other teams can't seem to score anything when they play him. Chase, Yacob, Aaron, and Alex all have their lowest average scores against Garrett. He looks forward to embarrassing Mierr with the team Mierr destroyed.",
     "photo": "/../managers/garrett.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": "lac", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
@@ -236,7 +236,7 @@ export const managers = [
     "favoritePlayer": null, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     "valuePosition": null, // (optional) Favorite position (QB, WR, RB, TE, etc.)
     "rookieOrVets": null, // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
-    "philosophy": "If I score low, the other team scores lower.",
+    "philosophy": "I was told defenses would win championships.",
     "tradingScale": 3, // 1 - 10
     "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
@@ -249,7 +249,7 @@ export const managers = [
     "photo": "/../managers/ethan.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": null, // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
-    "mode": null, // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
+    "mode": "Rebuild", // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
     "rival": {
       name: "Rage", // Can be anything (usually your rival's name)
       link: 10, // manager array number within this array, or null to link back to all managers page
@@ -263,36 +263,3 @@ export const managers = [
     "preferredContact": "Carrier Pigeon", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
   ]
-  
-  
-  /*   !!  !!  IMPORTANT  !!  !! */
-  /*
-  Below is the most up to-date version of a manager. Please leave this commented out
-  and don't delete it. This will be updated if any fields are added, removed or changed
-  and will allow updates without causing merge conflicts
-  */
-  
-    // {
-    //   "roster": 3,  // (DEPRECATED! Don't use this anymore) ID of the roster that the manager manages (look at the order of the power rankings graph)
-    //   "managerID": "12345678",  // the user's manager ID, go to https://api.sleeper.app/v1/league/<your_league_id>/users to find user IDs (you can use older leagueIDs to find user IDs for managers that are no longer in the league)
-    //   "name": "Your Name",
-    //   "tookOver": 2020, // (DEPRECATED! You don't need to use this anymore) (optional) used if a manager took over a team, delete this line or change to null otherwise
-    //   "location": "Brooklyn", // (optional)
-    //   "bio": "Lorem ipsum...",
-    //   "photo": "/managers/name.jpg", // square ratio recommended (no larger than 500x500)
-    //   "fantasyStart": 2014, // (optional) when did the manager start playing fantasy football
-    //   "favoriteTeam": "nyj", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
-    //   "mode": "Win Now", // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
-    //   "rival": {
-    //     name: "Rival", // Can be anything (usually your rival's name)
-    //     link: 6, // manager array number within this array, or null to link back to all managers page
-    //     image: "/managers/rival.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
-    //   },
-    //   "favoritePlayer": 1426, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    //   "valuePosition": "WR", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    //   "rookieOrVets": "Rookies", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
-    //   "philosophy": "Your fantasy team's philosophy", // (optional)
-    //   "tradingScale": 10, // 1 - 10 (optional)
-    //   "preferredContact": "Text",  // (optional) 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
-    // },
-    
