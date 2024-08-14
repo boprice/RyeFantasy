@@ -24,14 +24,14 @@
     const changeTable = (newGraph) => {
         switch (newGraph) {
             case 0 - iqOffset:
-            case (4 + (99 * iqOffset)):
+            case 1 - iqOffset:
                 curTable = 0;
                 break;
-            case 1 - iqOffset:
             case 2 - iqOffset:
                 curTable = 1 - iqOffset;
                 break;
             case 3 - iqOffset:
+            case (4 + (99 * iqOffset)):
                 curTable = 2 - iqOffset;
                 break;
             case 5 - (2 * iqOffset):
@@ -47,7 +47,7 @@
     const changeGraph = (newTable) => {
         switch (newTable) {
             case 0 - iqOffset:
-                if(curGraph == 0 || curGraph == 4) {
+                if(curGraph == 0 || curGraph == 1) {
                     break;
                 }
                 curGraph = 0;
@@ -59,6 +59,9 @@
                 curGraph = 1 - iqOffset;
                 break;
             case 2 - iqOffset:
+                if(curGraph == 3 - iqOffset || curGraph == 4 - iqOffset) {
+                    break;
+                }
                 curGraph = 3 - iqOffset;
                 break;
             case 3 - iqOffset:
@@ -87,7 +90,7 @@
             stats: lineupIQs,
             x: "Points",
             stat: "",
-            header: "Potential Points vs Points",
+            header: "Points vs Potential Points",
             field: "potentialPoints",
             secondField: "fpts",
             short: "Potential Points"
@@ -97,7 +100,7 @@
             stats: winPercentages,
             x: "Wins",
             stat: "",
-            header: "Team Wins",
+            header: "All-Time Wins",
             field: "wins",
             short: "Wins"
         }
@@ -106,7 +109,7 @@
             stats: winPercentages,
             x: "Win Percentage",
             stat: "%",
-            header: "Team Win Percentages",
+            header: "Win Percentages",
             field: "percentage",
             short: "Win Percentage"
         }
@@ -115,7 +118,7 @@
             stats: fptsHistories,
             x: "Fantasy Points",
             stat: "",
-            header: "Team Fantasy Points",
+            header: "All-Time Fantasy Points",
             field: "fptsFor",
             short: "Fantasy Points"
         }
@@ -124,7 +127,7 @@
             stats: tradesData,
             x: "# of trades",
             stat: "",
-            header: "Number of Trades Managers Have Made",
+            header: "All-Time Trades",
             field: "trades",
             short: "Trades"
         }
@@ -133,18 +136,18 @@
             stats: wD,
             x: "# of Waiver Moves",
             stat: "",
-            header: "Waivers Moves Managers Have Made",
+            header: "All-Time Waivers",
             field: "waivers",
             short: "Waivers"
         }
         const gs = [];
 
-        if(lineupIQs[0]?.potentialPoints) {
-            gs.push(generateGraph(lineupIQGraph, year));
-        }
         gs.push(generateGraph(winsGraph, year, 5));
         gs.push(generateGraph(winPercentagesGraph, year));
         gs.push(generateGraph(fptsHistoriesGraph, year));
+        if(lineupIQs[0]?.potentialPoints) {
+            gs.push(generateGraph(lineupIQGraph, year));
+        }
         if(lineupIQs[0]?.potentialPoints) {
             gs.push(generateGraph(potentialPointsGraph, year, 10, 0));
         }
@@ -205,13 +208,13 @@
             "Win Percentages",
             "Points",
         ]
-        if(key == "regularSeasonData") {
-            t.push("Transactions")
-        }
         if(!lIQs[0]?.potentialPoints) {
             iqOffset = 1;
         } else {
-            t.unshift('Lineup IQs');
+            t.push("Lineup IQs");
+        }
+        if(key == "regularSeasonData") {
+            t.push("Transactions")
         }
         tables = t
     }
@@ -665,42 +668,6 @@
 
 <div class="rankingHolder">
     <div class="rankingInner" style="margin-left: -{100 * curTable}%;">
-        {#if lineupIQs[0]?.potentialPoints}
-            <div class="rankingTableWrapper">
-                <DataTable class="rankingTable">
-                    <Head>
-                        <Row>
-                            <Cell class="header headerPrimary" colspan=5>
-                                {prefix} {key == "playoffData" ? "Playoff " : ""}Lineup IQ Rankings
-                                <div class="subTitle">
-                                    The percentage of potential points each manager has captured
-                                </div>
-                            </Cell>
-                        </Row>
-                        <Row>
-                            <Cell class="header"></Cell>
-                            <Cell class="header">Manager</Cell>
-                            <Cell class="header">Lineup IQ</Cell>
-                            <Cell class="header">Points</Cell>
-                            <Cell class="header">Potential Points</Cell>
-                        </Row>
-                    </Head>
-                    <Body>
-                        {#each lineupIQs as lineupIQ, ix}
-                            <Row>
-                                <Cell>{ix + 1}</Cell>
-                                <Cell class="cellName" on:click={() => gotoManager({year: lineupIQ.year || prefix, leagueTeamManagers, managerID: lineupIQ.managerID, rosterID: lineupIQ.rosterID})}>
-                                    <RecordTeam {leagueTeamManagers} managerID={lineupIQ.managerID} rosterID={lineupIQ.rosterID} year={allTime ? lineupIQ.year : prefix} />
-                                </Cell>
-                                <Cell>{lineupIQ.iq}%</Cell>
-                                <Cell>{round(lineupIQ.fpts)}</Cell>
-                                <Cell>{round(lineupIQ.potentialPoints)}</Cell>
-                            </Row>
-                        {/each}
-                    </Body>
-                </DataTable>
-            </div>
-        {/if}
 
         <div class="rankingTableWrapper">
             <DataTable class="rankingTable">
@@ -770,11 +737,48 @@
             </DataTable>
         </div>
 
+        {#if lineupIQs[0]?.potentialPoints}
+            <div class="rankingTableWrapper">
+                <DataTable class="rankingTable">
+                    <Head>
+                        <Row>
+                            <Cell class="header headerPrimary" colspan=5>
+                                {prefix} {key == "playoffData" ? "Playoff " : ""}Lineup IQ Rankings
+                                <div class="subTitle">
+                                    The percentage of potential points each manager has captured
+                                </div>
+                            </Cell>
+                        </Row>
+                        <Row>
+                            <Cell class="header"></Cell>
+                            <Cell class="header">Manager</Cell>
+                            <Cell class="header">Lineup IQ</Cell>
+                            <Cell class="header">Points</Cell>
+                            <Cell class="header">Potential Points</Cell>
+                        </Row>
+                    </Head>
+                    <Body>
+                        {#each lineupIQs as lineupIQ, ix}
+                            <Row>
+                                <Cell>{ix + 1}</Cell>
+                                <Cell class="cellName" on:click={() => gotoManager({year: lineupIQ.year || prefix, leagueTeamManagers, managerID: lineupIQ.managerID, rosterID: lineupIQ.rosterID})}>
+                                    <RecordTeam {leagueTeamManagers} managerID={lineupIQ.managerID} rosterID={lineupIQ.rosterID} year={allTime ? lineupIQ.year : prefix} />
+                                </Cell>
+                                <Cell>{lineupIQ.iq}%</Cell>
+                                <Cell>{round(lineupIQ.fpts)}</Cell>
+                                <Cell>{round(lineupIQ.potentialPoints)}</Cell>
+                            </Row>
+                        {/each}
+                    </Body>
+                </DataTable>
+            </div>
+        {/if}
+
         <div class="rankingTableWrapper">
             <DataTable class="rankingTable">
                 <Head>
                     <Row>
-                        <Cell class="header headerPrimary" colspan=4>
+                        <Cell class="header headerPrimary" colspan=5>
                             {prefix} Transaction Totals
                         </Cell>
                     </Row>
@@ -783,6 +787,7 @@
                         <Cell class="header">Manager</Cell>
                         <Cell class="header">Trades</Cell>
                         <Cell class="header">Waivers</Cell>
+                        <Cell class="header">Total</Cell>
                     </Row>
                 </Head>
                 <Body>
@@ -794,6 +799,7 @@
                             </Cell>
                             <Cell>{transaction.trades}</Cell>
                             <Cell>{transaction.waivers}</Cell>
+                            <Cell>{transaction.trades + transaction.waivers}</Cell>
                         </Row>
                     {/each}
                 </Body>
