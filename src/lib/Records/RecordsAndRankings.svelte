@@ -100,7 +100,7 @@
             stats: winPercentages,
             x: "Wins",
             stat: "",
-            header: "All-Time Wins",
+            header: "Wins",
             field: "wins",
             short: "Wins"
         }
@@ -118,7 +118,7 @@
             stats: fptsHistories,
             x: "Fantasy Points",
             stat: "",
-            header: "All-Time Fantasy Points",
+            header: "Fantasy Points",
             field: "fptsFor",
             short: "Fantasy Points"
         }
@@ -127,7 +127,7 @@
             stats: tradesData,
             x: "# of trades",
             stat: "",
-            header: "All-Time Trades",
+            header: "Trades",
             field: "trades",
             short: "Trades"
         }
@@ -136,7 +136,7 @@
             stats: wD,
             x: "# of Waiver Moves",
             stat: "",
-            header: "All-Time Waivers",
+            header: "Waivers",
             field: "waivers",
             short: "Waivers"
         }
