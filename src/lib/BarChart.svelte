@@ -97,15 +97,6 @@
     /* End button resizing */
 </style>
 
-<h6>{header}</h6>
-<div class="chartWrapper">
-    <div class="barChart" >
-        {#each managerIDs as managerID, ix}
-            <Bar {leagueTeamManagers} {managerID} rosterID={rosterIDs[ix]} {xMin} {xMax} stat={stats[ix]} secondStat={secondStats[ix]} {year} label={labels.stat} color={colors[ix % colors.length]} />
-        {/each}
-    </div>
-</div>
-
 {#if graphs.length > 1}
     <div class="buttonHolderG">
         <Group variant="outlined">
@@ -129,3 +120,12 @@
         </Group>
     </div>
 {/if}
+
+<h6>{header}</h6>
+<div class="chartWrapper">
+    <div class="barChart" >
+        {#each managerIDs as managerID, ix}
+            <Bar {leagueTeamManagers} {managerID} rosterID={rosterIDs[ix]} {xMin} {xMax} stat={stats[ix]} secondStat={secondStats[ix]} {year} label={labels.stat} color={colors[ix % colors.length]} />
+        {/each}
+    </div>
+</div>

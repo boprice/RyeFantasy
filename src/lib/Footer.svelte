@@ -99,11 +99,7 @@
 
 <div class="footerSpacer" style="height: {footerHeight}px;" />
 
-<!-- footer with update notice -->
 <footer bind:this={el}>
-    {#if managersOutOfDate}
-	    <p class="updateNotice">Your managers page needs an update, <a href="https://github.com/nmelhado/league-page/blob/master/TRAINING_WHEELS.md#2-add-managers">please follow the instructions</a> to get the most up-to-date experience.</p>
-    {/if}
 	<div id="navigation">
 		<ul>
 			{#each tabs as tab}

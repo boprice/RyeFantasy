@@ -276,7 +276,7 @@
 
     h4 {
         text-align: center;
-        margin: 2em 0 1em;
+        margin: 1em 0 1em;
     }
 
     .rankingTableWrapper {
@@ -660,7 +660,7 @@
     {/if}
 </div>
 
-<h4>{prefix} {key == "playoffData" ? "Playoff " : ""}Rankings</h4>
+<!-- <h4>{prefix} {key == "playoffData" ? "Playoff " : ""}Rankings</h4>
 
 {#if graphs.length}
     <BarChart {graphs} bind:curGraph={curGraph} {leagueTeamManagers} />
@@ -817,4 +817,4 @@
             </Button>
         {/each}
     </Group>
-</div>
+</div> -->
