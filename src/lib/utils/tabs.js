@@ -7,20 +7,32 @@ export const tabs = [
         dest: '/',
     },
     {
-        icon: 'sports',
-        label: 'Matchups',
-        dest: '/matchups',
+        icon: 'format_list_numbered',
+        label: 'The Stats',
+        nest: true,
+        children: [
+            {
+                icon: 'sports_football',
+                label: 'All-Time',
+                dest: `/stats`,
+            },
+            {
+                icon: 'local_fire_department',
+                label: 'Rivalry',
+                dest: '/rivalry',
+            },
+            {
+                icon: 'military_tech',
+                label: 'Records',
+                dest: '/records',
+            },
+            {
+                icon: 'emoji_events',
+                label: 'Trophies',
+                dest: '/awards',
+            },
+        ]
     },
-    {
-        icon: 'swap_horiz',
-        label: 'Transactions',
-        dest: '/transactions',
-    },
-    // {
-    //     icon: 'article',
-    //     label: 'Blog',
-    //     dest: '/blog',
-    // },
     {
         icon: 'view_comfy',
         label: 'League Info',
@@ -32,14 +44,24 @@ export const tabs = [
                 dest: '/managers',
             },
             {
-                icon: 'storage',
-                label: 'Rosters',
-                dest: '/rosters',
-            },
-            {
                 icon: 'leaderboard',
                 label: 'Standings',
                 dest: '/standings',
+            },
+            {
+                icon: 'swap_horiz',
+                label: 'Transactions',
+                dest: '/transactions',
+            },
+            {
+                icon: 'sports',
+                label: 'Matchups',
+                dest: '/matchups',
+            },
+            {
+                icon: 'storage',
+                label: 'Rosters',
+                dest: '/rosters',
             },
             {
                 icon: 'view_comfy',
@@ -56,31 +78,16 @@ export const tabs = [
             //     label: 'Go to Sleeper',
             //     dest: `https://sleeper.app/leagues/${leagueID}`,
             // },
-            {
-                icon: 'sports_football',
-                label: 'Stats',
-                dest: `/stats`,
-            },
-            {
-                icon: 'local_fire_department',
-                label: 'Rivalry',
-                dest: '/rivalry',
-            },
-            {
-                icon: 'military_tech',
-                label: 'Records',
-                dest: '/records',
-            },
-            {
-                icon: 'emoji_events',
-                label: 'Trophy Room',
-                dest: '/awards',
-            },
         ]
     },
     // {
     //     icon: 'lightbulb',
     //     label: 'Resources',
     //     dest: '/resources',
+    // },
+    // {
+    //     icon: 'article',
+    //     label: 'Blog',
+    //     dest: '/blog',
     // },
 ];
