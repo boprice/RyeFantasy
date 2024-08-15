@@ -13,7 +13,7 @@ export const tabs = [
     },
     {
         icon: 'swap_horiz',
-        label: 'Trades & Waivers',
+        label: 'Transactions',
         dest: '/transactions',
     },
     // {

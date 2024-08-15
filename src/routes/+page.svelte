@@ -166,7 +166,7 @@
                 <div class="textCenter">Retrieving NFL state...</div>
                 <LinearProgress indeterminate />
             {:then nflStateData}
-                <div class="textCenter">NFL {nflStateData.season} 
+                <div class="textCenter">{nflStateData.season} 
                     {#if nflStateData.season_type == 'pre'}
                         Preseason
                     {:else if nflStateData.season_type == 'post'}
