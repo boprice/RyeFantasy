@@ -28,7 +28,7 @@ export const tabs = [
             },
             {
                 icon: 'emoji_events',
-                label: 'Trophies',
+                label: 'Awards',
                 dest: '/awards',
             },
         ]

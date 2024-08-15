@@ -14,29 +14,17 @@
 	let el, width, height, left, top;
 
 	const sizeSubMenu = (w) => {
-    if (activeNestTab && tabElements[activeNestTab.label]) {
-        const activeEl = tabElements[activeNestTab.label];
-        top = activeEl.getBoundingClientRect().top;
-        const bottom = activeEl.getBoundingClientRect().bottom;
-        height = bottom - top + 1;
+		if (activeNestTab && tabElements[activeNestTab.label]) {
+			const activeEl = tabElements[activeNestTab.label];
+			top = activeEl.getBoundingClientRect().top;
+			const bottom = activeEl.getBoundingClientRect().bottom;
+			height = bottom - top + 1;
 
-        left = activeEl.getBoundingClientRect().left;
-        const right = activeEl.getBoundingClientRect().right;
-        width = right - left;
-    }
-}
-
-	// const sizeSubMenu = (w) => {
-	// 	top = el?.getBoundingClientRect() ? el?.getBoundingClientRect().top  : 0;
-	// 	const bottom = el?.getBoundingClientRect() ? el?.getBoundingClientRect().bottom  : 0;
-
-	// 	height = bottom - top + 1;
-
-	// 	left = el?.getBoundingClientRect() ? el?.getBoundingClientRect().left  : 0;
-	// 	const right = el?.getBoundingClientRect() ? el?.getBoundingClientRect().right  : 0;
-
-	// 	width = right - left;
-	// }
+			left = activeEl.getBoundingClientRect().left;
+			const right = activeEl.getBoundingClientRect().right;
+			width = right - left;
+		}
+	}
 
 	let innerWidth;
 
@@ -68,12 +56,6 @@
 			activeNestTab = tab;
 		}
 	};
-
-	// for(const tab of tabs) {
-	// 	if(tab.nest) {
-	// 		tabChildren = tab.children;
-	// 	}
-	// }
 
 </script>
 
