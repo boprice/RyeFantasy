@@ -61,7 +61,7 @@
         margin: 10px auto;
     }
 
-    .center {
+    .textCenter {
         text-align: center;
     }
 
@@ -116,7 +116,7 @@
     h4 {
         text-align: center;
         font-size: 1.8em;
-        margin: 10px;
+        margin: 0;
         font-style: italic;
     }
 
@@ -134,12 +134,18 @@
 		color: #bbb;
 		font-style: italic;
 	}
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 
 <div id="home">
     <div id="main">
         <div class="text">
-            <h6>{leagueName}</h6>
+            <h4>{leagueName}</h4>
             <!-- homepageText contains the intro text for your league, this gets edited in /src/lib/utils/leagueInfo.js -->
             {@html homepageText }
             <!-- Most recent Blog Post (if enabled) -->
@@ -147,16 +153,20 @@
                 <HomePost />
             {/if}
         </div>
+        <div class="center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=mx0AnoP1q0e0fyDx&amp;list=PL6_hjc_czTRkk6wXpGjeLyJpx3s2_4AcB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <br>
         <PowerRankings />
     </div>
     
     <div class="leagueData">
         <div class="homeBanner">
             {#await nflState}
-                <div class="center">Retrieving NFL state...</div>
+                <div class="textCenter">Retrieving NFL state...</div>
                 <LinearProgress indeterminate />
             {:then nflStateData}
-                <div class="center">NFL {nflStateData.season} 
+                <div class="textCenter">NFL {nflStateData.season} 
                     {#if nflStateData.season_type == 'pre'}
                         Preseason
                     {:else if nflStateData.season_type == 'post'}
@@ -166,13 +176,13 @@
                     {/if}
                 </div>
             {:catch error}
-                <div class="center">Something went wrong: {error.message}</div>
+                <div class="textCenter">Something went wrong: {error.message}</div>
             {/await}
         </div>
 
         <div id="currentChamp">
             {#await waitForAll(podiumsData, leagueTeamManagersData)}
-                <p class="center">Retrieving awards...</p>
+                <p class="textCenter">Retrieving awards...</p>
                 <LinearProgress indeterminate />
             {:then [podiums, leagueTeamManagers]}
                 {#if podiums[0]}
@@ -183,10 +193,10 @@
                     </div>
                     <span class="label" on:click={() => gotoManager({year: podiums[0].year, leagueTeamManagers, rosterID: parseInt(podiums[0].champion)})} >{getTeamFromTeamManagers(leagueTeamManagers, podiums[0].champion, podiums[0].year).name}</span>
                 {:else}
-                    <p class="center">No former champs.</p>
+                    <p class="textCenter">No former champs.</p>
                 {/if}
             {:catch error}
-                <p class="center">Something went wrong: {error.message}</p>
+                <p class="textCenter">Something went wrong: {error.message}</p>
             {/await}
         </div>
 
