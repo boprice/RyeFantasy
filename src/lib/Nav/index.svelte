@@ -29,7 +29,10 @@
 </script>
 
 <svelte:head>
-	<title>{!$page.url.pathname[1] ? 'Home' : $page.url.pathname[1].toUpperCase() + $page.url.pathname.slice(2)} | RYE</title>
+	<title>{!$page.url.pathname[1] ? 'Home' : ($page.url.pathname.endsWith('/') 
+		? $page.url.pathname[1].toUpperCase() + $page.url.pathname.slice(2, -1) 
+		: $page.url.pathname[1].toUpperCase() + $page.url.pathname.slice(2)
+	  	)} | RYE</title>
 </svelte:head>
 
 <style>
