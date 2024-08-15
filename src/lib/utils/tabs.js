@@ -16,11 +16,11 @@ export const tabs = [
         label: 'Trades & Waivers',
         dest: '/transactions',
     },
-    {
-        icon: 'article',
-        label: 'Blog',
-        dest: '/blog',
-    },
+    // {
+    //     icon: 'article',
+    //     label: 'Blog',
+    //     dest: '/blog',
+    // },
     {
         icon: 'view_comfy',
         label: 'League Info',
@@ -37,11 +37,6 @@ export const tabs = [
                 dest: '/rosters',
             },
             {
-                icon: 'local_fire_department',
-                label: 'Rivalry',
-                dest: '/rivalry',
-            },
-            {
                 icon: 'leaderboard',
                 label: 'Standings',
                 dest: '/standings',
@@ -50,16 +45,6 @@ export const tabs = [
                 icon: 'view_comfy',
                 label: 'Drafts',
                 dest: '/drafts',
-            },
-            {
-                icon: 'emoji_events',
-                label: 'Trophy Room',
-                dest: '/awards',
-            },
-            {
-                icon: 'military_tech',
-                label: 'Records',
-                dest: '/records',
             },
             {
                 icon: 'history_edu',
@@ -71,6 +56,26 @@ export const tabs = [
             //     label: 'Go to Sleeper',
             //     dest: `https://sleeper.app/leagues/${leagueID}`,
             // },
+            {
+                icon: 'sports_football',
+                label: 'Stats',
+                dest: `/stats`,
+            },
+            {
+                icon: 'local_fire_department',
+                label: 'Rivalry',
+                dest: '/rivalry',
+            },
+            {
+                icon: 'military_tech',
+                label: 'Records',
+                dest: '/records',
+            },
+            {
+                icon: 'emoji_events',
+                label: 'Trophy Room',
+                dest: '/awards',
+            },
         ]
     },
     // {
