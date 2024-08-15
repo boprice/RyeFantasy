@@ -192,8 +192,8 @@
                 unit="pts/game" />
             <!-- points -->
             <ComparissonBar 
-                sideOne={parseFloat(rivalry.points.one)} 
-                sideTwo={parseFloat(rivalry.points.two)} 
+                sideOne={parseFloat(round(rivalry.points.one))} 
+                sideTwo={parseFloat(round(rivalry.points.two))} 
                 label="Total Points" 
                 unit="pts" />
             <h3>Matchups</h3>
