@@ -69,7 +69,6 @@
 	$: displayTransactions = setQuery(query, filteredTransactions);
 
 	const changePage = (dest, pageChange = false) => {
-		if(queryPage == dest && pageChange) return;
 		page = dest;
 		if(dest > (filteredTransactions.length / perPage) || dest < 0) {
 			page = 0;
@@ -87,7 +86,9 @@
 	const debounce = (dest) => {
 		clearTimeout(timer);
 		timer = setTimeout(() => {
-            goto(dest,{noscroll: true,  keepfocus: true});
+			window.history.pushState({}, '', dest);
+			// Manually trigger your search/filter logic here instead of relying on navigation
+			setQuery(query, filteredTransactions);
 		}, 750);
 	}
 
@@ -110,11 +111,11 @@
 	}
 	
 	const checkMatch = (query, name) => {
-		const nameMatch = match(query, name)
-		if(nameMatch.match && nameMatch.score > 0) {
-			(nameMatch.score);
+		const nameMatch = match(query.toLowerCase(), name.toLowerCase())
+		if(nameMatch.match && nameMatch.score > -10) {
 			return true;
 		}
+		return false;
 	}
 
 	const checkForQuery = (transaction) => {
@@ -122,7 +123,9 @@
 		for(const move of moves) {
 			for(const col of move) {
 				if(!col?.player) continue;
-				return checkMatch(query, `${players[col.player].fn} ${players[col.player].ln}`);
+				if(checkMatch(query, `${players[col.player].fn} ${players[col.player].ln}`)) {
+					return true;
+				}
 			}
 		}
 		return false;
