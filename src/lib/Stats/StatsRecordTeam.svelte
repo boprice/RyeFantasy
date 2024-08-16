@@ -3,7 +3,7 @@
 
     export let leagueTeamManagers, managerID = null, rosterID = null, year, compressed = false, points = null;
 
-    let user = null;
+    $: user = managerID ? leagueTeamManagers.users[managerID] : null;
 
     if(managerID) {
         user = leagueTeamManagers.users[managerID];
