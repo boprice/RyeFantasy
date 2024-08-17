@@ -259,7 +259,6 @@
             record.rosterID = key;
             leagueManagerRecords.push(record);
         }
-        console.log(records.regularSeasonData)
         const winRecords = [...leagueManagerRecords].sort(
             (a, b) => b.wins - a.wins
         );
