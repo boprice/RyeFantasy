@@ -5,16 +5,25 @@ import { dynasty } from './utils/helper';
     const today = new Date();
     const resources = [
         {
-            name: "The Fantasy Footballers",
-            url: "https://www.thefantasyfootballers.com/",
-            icon: "podcasts",
-            premium: true,
-            separator: true,
+            name: "FantasyCalc",
+            url: "https://www.fantasycalc.com/league/dashboard?leagueId=1049732316240723968&site=Sleeper",
+            icon: "calculate",
+            premium: false,
+            separator: false,
+            dynastyOnly: false,
         },
         {
-            name: "FantasyCalc Trade Calculator",
-            url: "https://www.fantasycalc.com/trade-calculator",
-            icon: "calculate",
+            name: "KeepTradeCut",
+            url: "https://keeptradecut.com/dynasty/power-rankings/league-overview?leagueId=1049732316240723968&platform=2&viewMode=1&viewSort=0",
+            icon: "trending_up",
+            premium: false,
+            separator: false,
+            dynastyOnly: false,
+        },
+        {
+            name: "FantasyPros",
+            url: "https://www.fantasypros.com/nfl/rankings/dynasty-overall.php",
+            icon: "sports_football",
             premium: false,
             separator: false,
             dynastyOnly: false,
@@ -105,5 +114,4 @@ import { dynasty } from './utils/helper';
             {/if}
         {/each}
     </List>
-    <p class="disclaimer">*Some or all content is behind a paywall</p>
 </div>
