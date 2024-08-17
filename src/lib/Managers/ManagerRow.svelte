@@ -249,8 +249,12 @@
                 <div class="infoIcon">
                     <img class="infoImg" src="https://sleepercdn.com/images/team_logos/nfl/{manager.favoriteTeam}.png" alt="favorite team"/>
                 </div>
+            <!-- {:else if manager.favoritePlayer != null}
+                <div class="infoIcon">
+                    <img  src="https://sleepercdn.com/content/nfl/players/{manager.favoritePlayer}.jpg" alt="favorite player" style="width: 85px; height: 65px; margin-top: 20px;" />
+                </div> -->
             {:else}
-                <div class="infoIcon question">
+                <div class="infoIcon">
                     <img class="infoImg" src="/managers/nfl.png" alt="favorite team"/>
                 </div>
             {/if}
