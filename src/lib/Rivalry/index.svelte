@@ -220,10 +220,10 @@
             <h3>Performance Comparisson</h3>
             <ComparissonBar
                 sideOne={parseFloat(round(
-                    playerOneRecords.wins/(playerOneRecords.wins + playerOneRecords.ties + playerOneRecords.losses) * 100
+                    playerOneRecords.totalWins/(playerOneRecords.totalWins + playerOneRecords.totalTies + playerOneRecords.totalLosses) * 100
                     ))}
                 sideTwo={parseFloat(round(
-                    playerTwoRecords.wins/(playerTwoRecords.wins + playerTwoRecords.ties + playerTwoRecords.losses) * 100
+                    playerTwoRecords.totalWins/(playerTwoRecords.totalWins + playerTwoRecords.totalTies + playerTwoRecords.totalLosses) * 100
                     ))}
                 label="Win Percentage"
                 unit="%"

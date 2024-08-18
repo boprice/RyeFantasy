@@ -331,7 +331,7 @@
 
     
     <h3 bind:this={fourThree}>4.3 Roster Cuts</h3>
-    <p>There will be 3 cut weeks leading up the the regular season to get the bench back down to 14 spots.</p>
+    <p>There will be 2 cut weeks leading up the the regular season to get the bench back down to 14 spots.</p>
     <p class="underscore">If you do not have a valid lineup once Week 1 begins, you will take an 0-2 loss for your Week 1 game.</p>
 
 
