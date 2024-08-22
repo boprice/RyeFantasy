@@ -72,8 +72,15 @@
         text-align: center;
     }
 
-    h6 {
+    h2 {
         text-align: center;
+        font-style: italic;
+    }
+
+    p {
+        text-align: center;
+        margin-top: 0;
+        font-style: italic;
     }
 
     .homeBanner {
@@ -125,6 +132,7 @@
         font-size: 1.8em;
         margin: 0;
         font-style: italic;
+        margin-bottom: 0px;
     }
 
     .label {
@@ -146,7 +154,8 @@
 <div id="home">
     <div id="main">
         <div class="text">
-            <h4>{leagueName}</h4>
+            <img src="/rye.png" alt="logo" style="width: 45%; max-width: 400px; margin: 0 auto; display: block;" />
+            <!-- <h2>{leagueName}</h2> -->
             <!-- homepageText contains the intro text for your league, this gets edited in /src/lib/utils/leagueInfo.js -->
             {@html homepageText }
             <!-- Most recent Blog Post (if enabled) -->
@@ -160,6 +169,7 @@
         <br>
         <br>
         <h4>Rest of Season Power Rankings</h4>
+        <p>(Based on projected points for the rest of the season)<p>
         <PowerRankings />
     </div>
     
