@@ -17,6 +17,23 @@
     }
 
     $: analyzeRivalry(playerOne, playerTwo)
+
+    let sortedUsersOne = [];
+    let sortedUsersTwo = [];
+
+    // Function to sort users by display_name
+    function sortUsersByDisplayName(users) {
+        return [...users].sort((a, b) => {
+        const nameA = leagueTeamManagers.users[a]?.display_name?.toLowerCase() ?? '';
+        const nameB = leagueTeamManagers.users[b]?.display_name?.toLowerCase() ?? '';
+        return nameA.localeCompare(nameB);
+        });
+    }
+
+    $: {
+        sortedUsersOne = sortUsersByDisplayName(usersOne);
+        sortedUsersTwo = sortUsersByDisplayName(usersTwo);
+    }
 </script>
 
 <style>
@@ -129,7 +146,7 @@
         <div class="container">
             <select class="selectInput left" id="managerOne" name="managerOne" bind:value={playerOne}>
                 <option value={null}>Select a manager</option>
-                {#each usersOne as user}
+                {#each sortedUsersOne as user}
                     <option value={user}>{leagueTeamManagers.users[user].display_name}</option>
                 {/each}
             </select>
@@ -143,9 +160,9 @@
     <!-- manager 2 -->
     <div class="manager">
         <div class="container">
-            <select class="selectInput right" id="managerOne" name="managerOne" bind:value={playerTwo}>
+            <select class="selectInput right" id="managerTwo" name="managerTwo" bind:value={playerTwo}>
                 <option value={null}>Select a manager</option>
-                {#each usersTwo as user}
+                {#each sortedUsersTwo as user}
                     <option value={user}>{leagueTeamManagers.users[user].display_name}</option>
                 {/each}
             </select>
