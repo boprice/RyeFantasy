@@ -78,11 +78,11 @@ export const tabs = [
             //     label: 'Go to Sleeper',
             //     dest: `https://sleeper.app/leagues/${leagueID}`,
             // },
-            // {
-            //     icon: 'description',
-            //     label: 'Weekly RYE',
-            //     dest: '/weekly-overview',
-            // },
+            {
+                icon: 'description',
+                label: 'Weekly RYE',
+                dest: '/weekly-overview',
+            },
             {
                 icon: 'lightbulb',
                 label: 'Resources',
