@@ -88,7 +88,7 @@
         if(expandOverride) return;
         active = active == ix ? null : ix;
         setTimeout( () => {
-            window.scrollTo({left: 0, top, behavior: 'smooth'});
+            // window.scrollTo({left: 0, top, behavior: 'smooth'});
         }, 200);
         ;
     }
