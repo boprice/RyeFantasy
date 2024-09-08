@@ -75,14 +75,28 @@ export const getRivalryMatchups = async (userOneID, userTwoID) => {
                 const sideB = matchup[1];
                 let sideAPoints = sideA.points.reduce((t, nV) => t + nV, 0);
                 let sideBPoints = sideB.points.reduce((t, nV) => t + nV, 0);
-                rivalry.points.one += sideAPoints;
-                rivalry.points.two += sideBPoints;
-                if(sideAPoints > sideBPoints) {
-                    rivalry.wins.one++;
-                } else if(sideAPoints < sideBPoints) {
-                    rivalry.wins.two++;
+                // rivalry.points.one += sideAPoints;
+                // rivalry.points.two += sideBPoints;
+                if (nflState.season == year) {
+                    if(nflState.week > week) {
+                        if(sideAPoints > sideBPoints) {
+                            rivalry.wins.one++;
+                        } else if(sideAPoints < sideBPoints) {
+                            rivalry.wins.two++;
+                        } else {
+                            rivalry.ties++;
+                        }
+                    }   
                 } else {
-                    rivalry.ties++;
+                    rivalry.points.one += sideAPoints;
+                    rivalry.points.two += sideBPoints;
+                    if(sideAPoints > sideBPoints) {
+                        rivalry.wins.one++;
+                    } else if(sideAPoints < sideBPoints) {
+                        rivalry.wins.two++;
+                    } else {
+                        rivalry.ties++;
+                    }
                 }
                 rivalry.matchups.push({
                     week,
