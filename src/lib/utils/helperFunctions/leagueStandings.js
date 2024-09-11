@@ -37,7 +37,9 @@ export const getLeagueStandings = async () => {
             losses: roster.settings.losses,
             ties: roster.settings.ties,
             fpts: round(roster.settings.fpts + (roster.settings.fpts_decimal / 100)),
+            fptsPerGame: round((roster.settings.fpts + (roster.settings.fpts_decimal / 100))/((roster.settings.wins + roster.settings.losses + roster.settings.ties)/2)),
             fptsAgainst: round(roster.settings.fpts_against + (roster.settings.fpts_against_decimal / 100)),
+            fptsAgainstPerGame: round((roster.settings.fpts_against + (roster.settings.fpts_against_decimal / 100))/((roster.settings.wins + roster.settings.losses + roster.settings.ties)/2)),
             streak: roster.metadata?.streak || 0,
             divisionWins: divisions ? 0 : null,
             divisionLosses: divisions ? 0 : null,
@@ -55,7 +57,7 @@ export const getLeagueStandings = async () => {
         }
 
         // if at least one week hasn't been completed, then standings can't be created
-        if(week < 2) {
+        if(week < 1) {
             return null;
         }
 

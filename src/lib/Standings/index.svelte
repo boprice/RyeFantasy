@@ -13,7 +13,15 @@
     const sortOrder = ["fptsAgainst", "divisionTies", "divisionWins", "fpts", "ties", "wins"];
 
     // Column order from left to right
-    const columnOrder = [{name: "W", field: "wins"}, {name: "T", field: "ties"}, {name: "L", field: "losses"}, {name: "Div W", field: "divisionWins"}, {name: "Div T", field: "divisionTies"}, {name: "Div L", field: "divisionLosses"}, {name: "FPTS", field: "fpts"}, {name: "FPTS Against", field: "fptsAgainst"}, {name: "Streak", field: "streak"}]
+    // const columnOrder = [{name: "W", field: "wins"}, {name: "T", field: "ties"}, {name: "L", field: "losses"}, {name: "Div W", field: "divisionWins"}, {name: "Div T", field: "divisionTies"}, {name: "Div L", field: "divisionLosses"}, {name: "FPTS", field: "fpts"}, {name: "FPTS Against", field: "fptsAgainst"}, {name: "Streak", field: "streak"}]
+    const columnOrder = [
+        {name: "W", field: "wins"}, 
+        {name: "L", field: "losses"}, 
+        {name: "Div W", field: "divisionWins"}, 
+        {name: "Div L", field: "divisionLosses"}, 
+        {name: "Avg PF", field: "fptsPerGame"}, 
+        {name: "Avg PA", field: "fptsAgainstPerGame"}, 
+        {name: "Streak", field: "streak"}]
 
     let loading = true;
     let preseason = false;
@@ -73,12 +81,12 @@
 
     .standingsTable {
         max-width: 100%;
-        overflow-x: scroll;
+        overflow-x: auto;
         margin: 0.5em 0 5em;
     }
 </style>
 
-<h1>{year ?? ''}Standings</h1>
+<h1>{year ?? ''} Standings</h1>
 
 {#if loading}
     <!-- promise is pending -->
@@ -95,6 +103,7 @@
         <DataTable table$aria-label="League Standings" >
             <Head> <!-- Team name  -->
                 <Row>
+                    <Cell class="center">#</Cell>
                     <Cell class="center">Team</Cell>
                     {#each columnOrder as column}
                         <Cell class="center wrappable">{column.name}</Cell>
@@ -104,7 +113,7 @@
             <Body>
                 <!-- 	Standing	 -->
                 {#each standings as standing}
-                    <Standing {columnOrder} {standing} {leagueTeamManagers} team={getTeamFromTeamManagers(leagueTeamManagers, standing.rosterID)} />
+                    <Standing {columnOrder} {standing} {leagueTeamManagers} team={getTeamFromTeamManagers(leagueTeamManagers, standing.rosterID)} rowNumber={standings.indexOf(standing) + 1} />
                 {/each}
             </Body>
         </DataTable>
