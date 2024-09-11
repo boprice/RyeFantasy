@@ -40,9 +40,12 @@
         color: #fff;
         padding: 0.5em 0;
         font-weight: 500;
-        font-size: 1.5em;
+        font-size: 2em;
         text-align: center;
         margin-bottom: 1rem;
+        width: 25%;
+        margin-left: auto;
+        margin-right: auto;
     }
     .transactions {
         display: block;
