@@ -17,9 +17,24 @@
     const nflState = getNflState();
 
     let transactionsVisible = false;
+    let lastWeekVisible = false;
+    let thisWeekVisible = false;
+    let standingsVisible = false;
 
     function toggleTransactions() {
         transactionsVisible = !transactionsVisible;
+    }
+
+    function toggleLastWeek() {
+        lastWeekVisible = !lastWeekVisible;
+    }
+
+    function toggleThisWeek() {
+        thisWeekVisible = !thisWeekVisible;
+    }
+
+    function toggleStandings() {
+        standingsVisible = !standingsVisible;
     }
 </script>
 
@@ -98,8 +113,15 @@
 
         {#if nflStateData.week > 1}
         <div class="section">
-            <h1 class="section-title">Current Standings</h1>
-            <Standings {standingsData} {leagueTeamManagersData} />
+            <h1 class="section-title" on:click={toggleStandings}>
+                Current Standings
+                <span class="arrow" class:up={!standingsVisible}>▼</span>
+            </h1>
+            {#if standingsVisible}
+                <div class="transactions" transition:slide={{ duration: 10}}>
+                    <Standings {standingsData} {leagueTeamManagersData} />
+                </div>
+            {/if}
         </div>
         {/if}
 

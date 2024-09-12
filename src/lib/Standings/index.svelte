@@ -17,11 +17,11 @@
     const columnOrder = [
         {name: "W", field: "wins"}, 
         {name: "L", field: "losses"}, 
-        {name: "Div W", field: "divisionWins"}, 
-        {name: "Div L", field: "divisionLosses"}, 
         {name: "Avg PF", field: "fptsPerGame"}, 
         {name: "Avg PA", field: "fptsAgainstPerGame"}, 
-        {name: "Streak", field: "streak"}]
+        {name: "Streak", field: "streak"},
+        {name: "Div W", field: "divisionWins"}, 
+        {name: "Div L", field: "divisionLosses"},]
 
     let loading = true;
     let preseason = false;
