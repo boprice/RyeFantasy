@@ -79,6 +79,8 @@ export const getRivalryMatchups = async (userOneID, userTwoID) => {
                 // rivalry.points.two += sideBPoints;
                 if (nflState.season == year) {
                     if(nflState.week > week) {
+                        rivalry.points.one += sideAPoints;
+                        rivalry.points.two += sideBPoints;
                         if(sideAPoints > sideBPoints) {
                             rivalry.wins.one++;
                         } else if(sideAPoints < sideBPoints) {
