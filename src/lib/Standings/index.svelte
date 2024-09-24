@@ -19,7 +19,7 @@
         {name: "L", field: "losses"}, 
         {name: "Avg PF", field: "fptsPerGame"}, 
         {name: "Avg PA", field: "fptsAgainstPerGame"}, 
-        {name: "Streak", field: "streak"},
+        // {name: "Streak", field: "streak"},
         {name: "Div W", field: "divisionWins"}, 
         {name: "Div L", field: "divisionLosses"},]
 
