@@ -103,7 +103,10 @@ const buildFromScratch = (rosters, previousOrder, rounds, picks, regularSeasonLe
 		draft[pick.round - 1][draftOrder.indexOf(pick.roster_id)] = pick.owner_id;
 	}
 
-	let accuracy = (progression + 1) / (regularSeasonLength + 1);
+	// let accuracy = (progression + 1) / (regularSeasonLength + 1);
+	// Divide Progression by 2, due to having median games. Hard code 17 for number of games and include 3 playoff weeks.
+	let accuracy = (progression/2) / (17);
+	
 	// make sure accuracy doesn't exceed 1
 	accuracy = accuracy > 1 ? 1 : accuracy;
 
