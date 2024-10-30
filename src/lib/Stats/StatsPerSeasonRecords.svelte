@@ -85,6 +85,7 @@
                 if(season.potentialPoints) {
                     lineupIQ.iq = round(season.fpts / season.potentialPoints * 100);
                     lineupIQ.potentialPoints = round(season.potentialPoints);
+                    lineupIQ.potentialPointsPerGame = round(season.potentialPointsPerGame);
                 }
 
                 yearsObj[season.year].lineupIQs.push(lineupIQ)

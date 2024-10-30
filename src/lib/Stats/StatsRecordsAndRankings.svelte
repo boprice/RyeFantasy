@@ -302,6 +302,10 @@
         padding-left: 8px;
     }
 
+    :global(.centered) {
+        text-align: center;
+    }
+
     :global(.differentialName) {
         padding: 0.7em 0;
     }
@@ -703,12 +707,12 @@
                             <Cell class="cellName" on:click={() => gotoManager({year: winPercentage.year || prefix, leagueTeamManagers, rosterID: winPercentage.rosterID, managerID: winPercentage.managerID})}>
                                 <StatsRecordTeam {leagueTeamManagers} managerID={winPercentage.managerID} rosterID={winPercentage.rosterID} year={allTime ? winPercentage.year : prefix} />
                             </Cell>
-                            <Cell>{winPercentage.percentage}%</Cell>
-                            <Cell>{winPercentage.wins}</Cell>
+                            <Cell class="centered">{winPercentage.percentage}%</Cell>
+                            <Cell class="centered">{winPercentage.wins}</Cell>
                             {#if showTies}
-                                <Cell>{winPercentage.ties}</Cell>
+                                <Cell class="centered">{winPercentage.ties}</Cell>
                             {/if}
-                            <Cell>{winPercentage.losses}</Cell>
+                            <Cell class="centered">{winPercentage.losses}</Cell>
                         </Row>
                     {/each}
                 </Body>
@@ -738,9 +742,9 @@
                             <Cell class="cellName" on:click={() => gotoManager({year: fptsHistory.year || prefix, leagueTeamManagers, rosterID: fptsHistory.rosterID, managerID: fptsHistory.managerID})}>
                                 <StatsRecordTeam {leagueTeamManagers} managerID={fptsHistory.managerID} rosterID={fptsHistory.rosterID} year={allTime ? fptsHistory.year : prefix} />
                             </Cell>
-                            <Cell>{round(fptsHistory.fptsFor)}</Cell>
-                            <Cell>{round(fptsHistory.fptsAgainst)}</Cell>
-                            <Cell>{round(fptsHistory.fptsPerGame)}</Cell>
+                            <Cell class="centered">{round(fptsHistory.fptsFor)}</Cell>
+                            <Cell class="centered">{round(fptsHistory.fptsAgainst)}</Cell>
+                            <Cell class="centered">{round(fptsHistory.fptsPerGame)}</Cell>
                         </Row>
                     {/each}
                 </Body>
@@ -752,7 +756,7 @@
                 <DataTable class="rankingTable">
                     <Head>
                         <Row>
-                            <Cell class="header headerPrimary" colspan=5>
+                            <Cell class="header headerPrimary" colspan=6>
                                 {prefix} {key == "playoffData" ? "Playoff " : ""}Lineup IQ Rankings
                                 <div class="subTitle">
                                     The percentage of potential points each manager has captured
@@ -765,6 +769,7 @@
                             <Cell class="header">Lineup IQ</Cell>
                             <Cell class="header">Points</Cell>
                             <Cell class="header">Potential Points</Cell>
+                            <Cell class="header">PP Missed PG</Cell>
                         </Row>
                     </Head>
                     <Body>
@@ -774,9 +779,10 @@
                                 <Cell class="cellName" on:click={() => gotoManager({year: lineupIQ.year || prefix, leagueTeamManagers, managerID: lineupIQ.managerID, rosterID: lineupIQ.rosterID})}>
                                     <StatsRecordTeam {leagueTeamManagers} managerID={lineupIQ.managerID} rosterID={lineupIQ.rosterID} year={allTime ? lineupIQ.year : prefix} />
                                 </Cell>
-                                <Cell>{lineupIQ.iq}%</Cell>
-                                <Cell>{round(lineupIQ.fpts)}</Cell>
-                                <Cell>{round(lineupIQ.potentialPoints)}</Cell>
+                                <Cell class="centered">{lineupIQ.iq}%</Cell>
+                                <Cell class="centered">{round(lineupIQ.fpts)}</Cell>
+                                <Cell class="centered">{round(lineupIQ.potentialPoints)}</Cell>
+                                <Cell class="centered">{round(lineupIQ.potentialPointsPerGame)}</Cell>
                             </Row>
                         {/each}
                     </Body>
@@ -807,9 +813,9 @@
                             <Cell class="cellName" on:click={() => gotoManager({year: transaction.year || prefix, leagueTeamManagers, rosterID: transaction.rosterID, managerID: transaction.managerID})}>
                                 <StatsRecordTeam {leagueTeamManagers} managerID={transaction.managerID} rosterID={transaction.rosterID} year={allTime ? transaction.year : prefix} />
                             </Cell>
-                            <Cell>{transaction.trades}</Cell>
-                            <Cell>{transaction.waivers}</Cell>
-                            <Cell>{transaction.trades + transaction.waivers}</Cell>
+                            <Cell class="centered">{transaction.trades}</Cell>
+                            <Cell class="centered">{transaction.waivers}</Cell>
+                            <Cell class="centered">{transaction.trades + transaction.waivers}</Cell>
                         </Row>
                     {/each}
                 </Body>

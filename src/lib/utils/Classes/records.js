@@ -46,6 +46,7 @@ Records.prototype.confirmManagerRecord = function(managerID) {
             fptsFor: 0,
             fptsAgainst: 0,
             potentialPoints: 0,
+            potentialPointsPerGame: 0,
             pOGames: 0,
             byes: 0,
             playoffAppearances: 0,
@@ -83,10 +84,11 @@ Records.prototype.confirmRosterRecord = function(rosterID) {
  * @param {number} recordsData.fptsFor
  * @param {number} recordsData.fptsAgainst
  * @param {number} recordsData.potentialPoints
+ * @param {number} recordsData.potentialPointsPerGame
  * @param {number} recordsData.pOGames
  * @param {number} recordsData.byes
  */
-Records.prototype.updateManagerRecord = function(managers, {rosterID, year, wins, losses, ties, totalWins, totalLosses, totalTies, fptsPerGame, fptsFor, fptsAgainst, potentialPoints, pOGames, byes}) {
+Records.prototype.updateManagerRecord = function(managers, {rosterID, year, wins, losses, ties, totalWins, totalLosses, totalTies, fptsPerGame, fptsFor, fptsAgainst, potentialPoints, potentialPointsPerGame, pOGames, byes}) {
     // check that a roster record has already been started for a given roster ID
     for(const managerID of managers) {
         this.confirmManagerRecord(managerID);
@@ -102,6 +104,7 @@ Records.prototype.updateManagerRecord = function(managers, {rosterID, year, wins
         this.leagueManagerRecords[managerID].fptsFor += fptsFor;
         this.leagueManagerRecords[managerID].fptsAgainst += fptsAgainst;
         this.leagueManagerRecords[managerID].potentialPoints += potentialPoints;
+        this.leagueManagerRecords[managerID].potentialPointsPerGame += potentialPointsPerGame;
         this.leagueManagerRecords[managerID].pOGames += pOGames;
         this.leagueManagerRecords[managerID].byes += byes;
         this.leagueManagerRecords[managerID].playoffAppearances ++;
@@ -120,6 +123,7 @@ Records.prototype.updateManagerRecord = function(managers, {rosterID, year, wins
         fptsAgainst,
         fptsPerGame,
         potentialPoints,
+        potentialPointsPerGame,
         pOGames,
         byes,
         rosterID,

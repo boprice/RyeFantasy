@@ -241,6 +241,10 @@ const analyzeRosters = ({year, roster, regularSeason}) => {
 	const fptsFor = roster.settings.fpts + (roster.settings.fpts_decimal / 100);
 	const fptsPerGame = round(fptsFor / (wins + losses + ties));
 
+	// potentialPointsPerGame
+	const potentialPoints = roster.settings.ppts + (roster.settings.ppts_decimal / 100);
+	const potentialPointsPerGame = round((potentialPoints - fptsFor)/(wins + losses + ties))
+
 	// Create totalWins, totalLosses, and totalTies for including all games in win percentage calculations
 
 	const rosterRecords = {
@@ -253,7 +257,8 @@ const analyzeRosters = ({year, roster, regularSeason}) => {
 		fptsFor,
 		fptsAgainst:  roster.settings.fpts_against + (roster.settings.fpts_against_decimal / 100),
 		fptsPerGame,
-		potentialPoints:  roster.settings.ppts + (roster.settings.ppts_decimal / 100),
+		potentialPoints,
+		potentialPointsPerGame,
 		rosterID,
 		year,
 	}
@@ -307,6 +312,7 @@ const processMatchups = ({matchupWeek, seasonPointsRecord, record, startWeek, ma
                     fptsFor: 0,
                     fptsAgainst: 0,
                     potentialPoints: 0,
+					potentialPointsPerGame: 0,
                     fptspg: 0,
                     pOGames: 0,
                     byes: 0,

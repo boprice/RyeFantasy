@@ -52,6 +52,7 @@
             if(leagueManagerRecord.potentialPoints) {
                 lineupIQ.iq = round(leagueManagerRecord.fptsFor / leagueManagerRecord.potentialPoints * 100);
                 lineupIQ.potentialPoints = round(leagueManagerRecord.potentialPoints);
+                lineupIQ.potentialPointsPerGame = round(leagueManagerRecord.potentialPointsPerGame);
             }
 
             lineupIQs.push(lineupIQ)
