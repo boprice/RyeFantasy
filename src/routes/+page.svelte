@@ -163,9 +163,9 @@
                 <HomePost />
             {/if}
         </div>
-        <div class="center">
+        <!-- <div class="center">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=mx0AnoP1q0e0fyDx&amp;list=PL6_hjc_czTRkk6wXpGjeLyJpx3s2_4AcB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+        </div> -->
         <br>
         <br>
         <h4>Rest of Season Power Rankings</h4>

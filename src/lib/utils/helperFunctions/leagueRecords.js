@@ -244,6 +244,7 @@ const analyzeRosters = ({year, roster, regularSeason}) => {
 	// potentialPointsPerGame
 	const potentialPoints = roster.settings.ppts + (roster.settings.ppts_decimal / 100);
 	const potentialPointsPerGame = round((potentialPoints - fptsFor)/(wins + losses + ties))
+	// console.log("Potential Points Per Game: ", potentialPointsPerGame)
 
 	// Create totalWins, totalLosses, and totalTies for including all games in win percentage calculations
 
