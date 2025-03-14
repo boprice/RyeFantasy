@@ -209,7 +209,7 @@
         <li>Offseason: Every day at 7PM EST</li>
     </ul>
 
-    <p>FAAB budgets will reset at the start of the season, start of the offseason, & after the rookie draft.</p>
+    <p>FAAB budgets will reset to $100 only 1 time when the league is renewed.</p>
 
 
 
@@ -298,7 +298,7 @@
         <li>TD: 6</li>
         <li>2pt Conv: 2</li>
         <li>Fumble: -1</li>
-        <li>Fumble: -1</li>
+        <li>Fumble Lost: -1</li>
         <li>Punt Return Per Yard: 0.1</li>
         <li>Kick Return Per Yard: 0.05</li>
     </ul>
@@ -327,7 +327,7 @@
         <li>10: Champion</li>
     </ul>
     <p>Roster size will increase by x amount (dependent on who has the most picks).</p>
-    <p>FAAB will be reset to $100 once Rookie Draft concludes.</p>
+    <!-- <p>FAAB will be reset to $100 once Rookie Draft concludes.</p> -->
 
     
     <h3 bind:this={fourThree}>4.3 Roster Cuts</h3>
@@ -337,6 +337,6 @@
 
     <h3 bind:this={fourFour}>4.4 Regular Season Start</h3>
     <p>3 Bench slots will be converted back to IR slots.</p>
-    <p>Waivers set back to In Season settings and FAAB is reset to $100.</p>
+    <!-- <p>Waivers set back to In Season settings and FAAB is reset to $100.</p> -->
 
 </div>
