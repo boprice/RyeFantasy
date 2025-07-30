@@ -6,7 +6,7 @@ import { dynasty } from './utils/helper';
     const resources = [
         {
             name: "FantasyCalc",
-            url: "https://www.fantasycalc.com/league/dashboard?leagueId=1049732316240723968&site=Sleeper",
+            url: "https://www.fantasycalc.com/league/dashboard?leagueId=1205001407321616384&site=Sleeper",
             icon: "calculate",
             premium: false,
             separator: false,
@@ -14,7 +14,7 @@ import { dynasty } from './utils/helper';
         },
         {
             name: "KeepTradeCut",
-            url: "https://keeptradecut.com/dynasty/power-rankings/league-overview?leagueId=1049732316240723968&platform=2&viewMode=1&viewSort=0",
+            url: "https://keeptradecut.com/dynasty/power-rankings/league-overview?leagueId=1205001407321616384&platform=2&viewMode=1&viewSort=0",
             icon: "trending_up",
             premium: false,
             separator: false,

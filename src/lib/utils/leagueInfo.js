@@ -1,4 +1,4 @@
-export const leagueID = 1049732316240723968n; // your league ID
+export const leagueID = 1205001407321616384n; // your league ID
 export const leagueName = "Respect Your Elders"; // your league name
 export const dues = 100; // (optional) used in template constitution page
 export const dynasty = true; // true for dynasty leagues, false for redraft and keeper
@@ -124,7 +124,7 @@ export const managers = [
     "managerID" : "205583362516066304",
     "name": "Aaron",
     "location": "Hometown (Central)", // (optional)
-    "bio": "Looking at his team you would consider him a lock for the playoffs, but he likes to keep it interesting by fighting for one of the last spots every year (a real Showman). Once in the playoffs, he is the owner of the super fun curse to lose in round 1 of the playoffs every time.  Needs to secure that round 1 bye so he can try out another round of playoffs.",
+    "bio": "<p>Looking at his team you would consider him a lock for the playoffs, but he likes to keep it interesting by fighting for one of the last spots every year (a real Showman). Once in the playoffs, he is the owner of the super fun curse to lose in round 1 of the playoffs every time.  Needs to secure that round 1 bye so he can try out another round of playoffs.</p><p>Oh hey guess what... he got the round 1 bye and won the championship...</p>",
     "photo": "/../managers/aaron.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": "mia", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
@@ -137,7 +137,7 @@ export const managers = [
     "favoritePlayer": 5846, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     "valuePosition": "RB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
     "rookieOrVets": null, // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
-    "philosophy": "Good team on paper, wait the paper lied.",
+    "philosophy": "Good team <s>on paper, wait the paper lied</s>.",
     "tradingScale": 5, // 1 - 10
     "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
@@ -167,12 +167,12 @@ export const managers = [
     "roster": 8,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     "managerID" : "206162149335105536",
     "name": "Mierr",
-    "location": "Texas (Central)...For now...", // (optional)
+    "location": "Las VegASS", // (optional)
     "bio": "An OG manager that ran his team into the ground, quit, and then came back to a better team. His wins coincide directly with Josh Allen's good games (Unfortunately for the rest of the league, that's a lot of games). Makes some questionable decisions, but does so confidently!",
     "photo": "/../managers/mierr.png", // square ratio recommended (no larger than 500x500)
     "fantasyStart": null, // (optional) when did the manager start playing fantasy football
     "favoriteTeam": null, // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
-    "mode": "Win Now", // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
+    "mode": "Rebuild", // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
     "rival": {
       name: "Commitment", // Can be anything (usually your rival's name)
       link: 7, // manager array number within this array, or null to link back to all managers page
@@ -181,7 +181,7 @@ export const managers = [
     "favoritePlayer": 4984, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     "valuePosition": "QB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
     "rookieOrVets": null, // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
-    "philosophy": "When the going gets tough, the tough quit and come back later.",
+    "philosophy": "Don't be last plz.",
     "tradingScale": 7, // 1 - 10
     "preferredContact": "Discord", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },

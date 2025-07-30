@@ -28,7 +28,7 @@
 
 <div class="main">
     <h4>
-        Down, Set, Blue 404...
+        Welp this is embarrassing...
     </h4>
     <div class='footballHolder'>
         <img class='football' src='/deflated-football.png' alt='deflated football' />
