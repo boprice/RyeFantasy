@@ -113,7 +113,7 @@
 
         {#if nflStateData.week > 1}
         <div class="section">
-            <h1 class="section-title" on:click={toggleStandings}>
+            <h1 class="section-title" onclick={toggleStandings}>
                 Current Standings
                 <span class="arrow" class:up={!standingsVisible}>▼</span>
             </h1>
@@ -126,7 +126,7 @@
         {/if}
 
         <div class="section">
-            <h1 class="section-title" on:click={toggleTransactions}>
+            <h1 class="section-title" onclick={toggleTransactions}>
                 Recent Transactions
                 <span class="arrow" class:up={!transactionsVisible}>▼</span>
             </h1>

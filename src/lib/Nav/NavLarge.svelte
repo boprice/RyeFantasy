@@ -1,45 +1,45 @@
 <script>
+	import { tabs } from '$lib/utils/tabs';
 	import Tab, { Icon, Label } from '@smui/tab';
 	import List, { Item, Graphic, Text, Separator } from '@smui/list';
 	import TabBar from '@smui/tab-bar';
+    import { page } from '$app/state';
 	import { goto, preloadData } from '$app/navigation';
 	import { enableBlog, managers } from '$lib/utils/leagueInfo';
 
-	export let active, tabs;
+	let active = $state(tabs.find(tab => tab.dest == page.url.pathname || (tab.nest && tab.children.find(subTab => subTab.dest == page.url.pathname))));
 
-	let activeTab = active;
-	let tabElements = {};
+	let display = $state(false);
+	let el = $state();
+	let width = $state();
+	let height= $state();
+	let left = $state();
+	let top = $state();
 
-	let display;
-	let el, width, height, left, top;
+	$effect(() => {
+		top = el?.getBoundingClientRect() ? el?.getBoundingClientRect().top  : 0;
+		const bottom = el?.getBoundingClientRect() ? el?.getBoundingClientRect().bottom  : 0;
 
-	const sizeSubMenu = (w) => {
-		if (activeNestTab && tabElements[activeNestTab.label]) {
-			const activeEl = tabElements[activeNestTab.label];
-			top = activeEl.getBoundingClientRect().top;
-			const bottom = activeEl.getBoundingClientRect().bottom;
-			height = bottom - top + 1;
+		height = bottom - top + 1;
 
-			left = activeEl.getBoundingClientRect().left;
-			const right = activeEl.getBoundingClientRect().right;
-			width = right - left;
-		}
-	}
+		left = el?.getBoundingClientRect() ? el?.getBoundingClientRect().left  : 0;
+		const right = el?.getBoundingClientRect() ? el?.getBoundingClientRect().right  : 0;
 
-	let innerWidth;
+		width = right - left;
+	});
 
-	$: sizeSubMenu(innerWidth);
-
-	const open = (close = false) => {
-		if(close) {
+	$effect(() => {
+		if(active.key === 'league_info') {
 			setTimeout(() => {
-				active = activeTab;
-			}, 500)
-		} else {
-			activeTab = active;
+				open();
+			}, 0);
 		}
+	});
+
+	let innerWidth = $state();
+
+	const open = () => {
 		display = !display;
-		sizeSubMenu();
 	}
 
 	const subGoto = (dest) => {
@@ -47,15 +47,13 @@
 		goto(dest);
 	}
 
-	let tabChildren = []
-	let activeNestTab = null;
+	let tabChildren = $state([]);
 
-	const updateTabChildren = (tab) => {
-		if (tab.nest) {
+	for(const tab of tabs) {
+		if(tab.nest) {
 			tabChildren = tab.children;
-			activeNestTab = tab;
 		}
-	};
+	}
 
 </script>
 
@@ -111,44 +109,41 @@
 	}
 </style>
 
-<div class="overlay" style="display: {display ? "block" : "none"};" on:click={() => open(true)} />
+<div tabindex="0" role="button" class="overlay" style="display: {display ? "block" : "none"};" onclick={() => open(true)}></div>
 
 <div class="parent">
-	<TabBar class="navBar" {tabs} let:tab bind:active>
-		{#if tab.nest}
-			<div bind:this={tabElements[tab.label]}>
+	<TabBar class="navBar" {tabs} key={(tab) => tab.key} bind:active>
+		{#snippet tab(tab)}
+			{#if tab.nest}
+				<div bind:this={el}>
+					<Tab
+						{tab}
+						minWidth
+					>
+						<Icon class="material-icons">{tab.icon}</Icon>
+						<Label>{tab.label}</Label>
+					</Tab>
+				</div>
+			{:else}
 				<Tab
+					class="{tab.label == 'Blog' && !enableBlog ? 'dontDisplay' : ''}"
 					{tab}
-					on:click={() => {
-						updateTabChildren(tab);
-						open(display);
-					}}
+					onTouchstart={() => preloadData(tab.dest)}
+					onMouseover={() => preloadData(tab.dest)}
+					href={tab.dest}
 					minWidth
 				>
 					<Icon class="material-icons">{tab.icon}</Icon>
 					<Label>{tab.label}</Label>
 				</Tab>
-			</div>
-		{:else}
-			<Tab
-				class="{tab.label == 'Blog' && !enableBlog ? 'dontDisplay' : ''}"
-				{tab}
-				on:touchstart={() => preloadData(tab.dest)}
-				on:mouseover={() => preloadData(tab.dest)}
-				on:click={() => goto(tab.dest)}
-				minWidth
-			>
-				<Icon class="material-icons">{tab.icon}</Icon>
-				<Label>{tab.label}</Label>
-			</Tab>
-		{/if}
+			{/if}
+		{/snippet}
 	</TabBar>
 	<div class="subMenu" style="max-height: {display ? 49 * tabChildren.length - 1 - (managers.length ? 0 : 48) : 0}px; width: {width}px; top: {height}px; left: {left}px; box-shadow: 0 0 {display ? "3px" : "0"} 0 #00316b; border: {display ? "1px" : "0"} solid #00316b; border-top: none;">
-		{#if activeNestTab}
 		<List>
 			{#each tabChildren as subTab, ix}
 				{#if subTab.label == 'Managers'}
-					<Item class="{managers.length ? '' : 'dontDisplay'}" on:SMUI:action={() => subGoto(subTab.dest)} on:touchstart={() => preloadData(subTab.dest)} on:mouseover={() => preloadData(subTab.dest)}>
+					<Item class="{managers.length ? '' : 'dontDisplay'}" onSMUIAction={() => subGoto(subTab.dest)} ontouchstart={() => preloadData(subTab.dest)} onmouseover={() => preloadData(subTab.dest)}>
 						<Graphic class="material-icons">{subTab.icon}</Graphic>
 						<Text class="subText">{subTab.label}</Text>
 					</Item>
@@ -156,7 +151,7 @@
 						<Separator />
 					{/if}
 				{:else}
-					<Item on:SMUI:action={() => subGoto(subTab.dest)} on:touchstart={() => {if(subTab.label != 'Go to Sleeper') preloadData(subTab.dest)}} on:mouseover={() => {if(subTab.label != 'Go to Sleeper') preloadData(subTab.dest)}}>
+					<Item onSMUIAction={() => subGoto(subTab.dest)} ontouchstart={() => {if(subTab.label != 'Go to Sleeper') preloadData(subTab.dest)}} onmouseover={() => {if(subTab.label != 'Go to Sleeper') preloadData(subTab.dest)}}>
 						<Graphic class="material-icons">{subTab.icon}</Graphic>
 						<Text class="subText">{subTab.label}</Text>
 					</Item>
@@ -166,6 +161,5 @@
 				{/if}
 			{/each}
 		</List>
-		{/if}
 	</div>
 </div>
