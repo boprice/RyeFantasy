@@ -3,60 +3,49 @@ import { leagueID } from '$lib/utils/leagueInfo';
 import { getNflState } from './nflState';
 import { waitForAll } from './multiPromise';
 import { get } from 'svelte/store';
-import {transactionsStore} from '$lib/stores';
+import { transactionsStore } from '$lib/stores';
 import { browser } from '$app/environment';
 import { getLeagueTeamManagers } from './leagueTeamManagers';
+import { getFromCacheOrFetch } from './universalFunctions';
 
 export const getLeagueTransactions = async (preview, refresh = false) => {
-	const transactionsStoreVal = get(transactionsStore);
+	if (browser && refresh) {
+		localStorage.removeItem('transactions');
+	}
 
-	if(transactionsStoreVal.totals) {
+	// This inner function contains all the original logic for fetching and processing transactions.
+	// It will be passed to our caching utility.
+	const fetchAndProcessTransactions = async () => {
+		const nflState = await getNflState().catch((err) => { console.error(err); });
+	
+		let week = 18;
+		if(nflState.season_type == 'regular') {
+			week = nflState.week;
+		}
+	
+		const {transactionsData, currentSeason} = await combThroughTransactions(week, leagueID).catch((err) => { console.error(err); });
+	
+		const { transactions, totals } = await digestTransactions({transactionsData, currentSeason});
+	
+		// This is the clean data we want to cache
 		return {
-			transactions: checkPreview(preview, transactionsStoreVal.transactions),
-			totals: transactionsStoreVal.totals,
-			stale: false
+			transactions,
+			totals
 		};
 	}
 
-	// if this isn't a refresh data call, check if there are already transactions stored in localStorage
-	if(!refresh && browser) {
-		let localTransactions = await JSON.parse(localStorage.getItem("transactions"));
-		// check if transactions have been saved to localStorage before
-		if(localTransactions) {
-			localTransactions.transactions = checkPreview(preview, localTransactions.transactions);
-			localTransactions.stale = true;
-			return localTransactions;
-		}
+	// Use our new universal function to either get cached data or run the function above
+	const transactionPackage = await getFromCacheOrFetch('transactions', fetchAndProcessTransactions, 6);
+
+	// Update the Svelte store with the fresh data
+	if(browser) {
+		transactionsStore.update(() => transactionPackage);
 	}
 
-	// gather supporting info simultaneously
-	const nflState = await getNflState().catch((err) => { console.error(err); });
-	
-	let week = 18;
-	if(nflState.season_type == 'regular') {
-		week = nflState.week;
-	}
-
-	const {transactionsData, currentSeason} = await combThroughTransactions(week, leagueID).catch((err) => { console.error(err); });
-
-	const { transactions, totals } = await digestTransactions({transactionsData, currentSeason});
-
-	const transactionPackage = {
-		transactions,
-		totals
-	};
-
-    if(browser) {
-	    // update localStorage
-        localStorage.setItem("transactions", JSON.stringify(transactionPackage));
-    
-        // update the store
-        transactionsStore.update(() => transactionPackage);
-    }
-
+	// The stale value is no longer needed since the cache has a TTL, so we can hardcode it to false
 	return {
-		transactions: checkPreview(preview, transactions),
-		totals,
+		transactions: checkPreview(preview, transactionPackage.transactions),
+		totals: transactionPackage.totals,
 		stale: false
 	};
 }

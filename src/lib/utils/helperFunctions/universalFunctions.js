@@ -1,6 +1,7 @@
 import { managers as managersObj } from '$lib/utils/leagueInfo';
 import { goto } from "$app/navigation";
 import { stringDate } from './news';
+import { browser } from '$app/environment';
 
 const QUESTION = 'managers/question.jpg';
 
@@ -13,6 +14,47 @@ export const round = (num) => {
         num = parseFloat(num)
     }
     return (Math.round((num + Number.EPSILON) * 100) / 100).toFixed(2);
+}
+
+/**
+ * A generic function to retrieve an item from localStorage cache or fetch it if it's missing/expired.
+ * @param {string} key The key for the localStorage item.
+ * @param {Function} fetchFunction An async function that fetches and returns the data.
+ * @param {number} [ttl_hours=24] The time-to-live for the cache in hours.
+ * @returns {Promise<any>} The data from the cache or the fetch function.
+ */
+export async function getFromCacheOrFetch(key, fetchFunction, ttl_hours = 24) {
+    if (!browser) return await fetchFunction();
+
+    const cachedItem = localStorage.getItem(key);
+    const now = new Date().getTime();
+    const TTL = ttl_hours * 60 * 60 * 1000; // Time-to-live in milliseconds
+
+    if (cachedItem) {
+        try {
+            const parsedItem = JSON.parse(cachedItem);
+            // Check if the cache is still valid
+            if (now - parsedItem.timestamp < TTL) {
+                console.log(`Returning cached data for: ${key}`);
+                return parsedItem.data;
+            }
+        } catch (e) {
+            console.error(`Error parsing cache for ${key}, fetching new data.`, e);
+            // If parsing fails, remove the corrupted item
+            localStorage.removeItem(key);
+        }
+    }
+
+    console.log(`Fetching new data for: ${key}`);
+    const data = await fetchFunction();
+
+    const itemToCache = {
+        timestamp: now,
+        data: data
+    };
+
+    localStorage.setItem(key, JSON.stringify(itemToCache));
+    return data;
 }
 
 const min = (stats, roundOverride, max) => {
