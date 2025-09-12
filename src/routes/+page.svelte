@@ -169,7 +169,7 @@
         <br>
         <br>
         <h4>Rest of Season Power Rankings</h4>
-        <p>(Based on projected points for the rest of the season)<p>
+        <p>(Based on projected points for the rest of the season)</p>
         <PowerRankings />
     </div>
     
@@ -200,11 +200,11 @@
             {:then [podiums, leagueTeamManagers]}
                 {#if podiums[0]}
                     <h4>{podiums[0].year} Fantasy Champ</h4>
-                    <div id="champ" on:click={() => {if(managers.length) gotoManager({year: podiums[0].year, leagueTeamManagers, rosterID: parseInt(podiums[0].champion)})}} >
+                    <div id="champ" onclick={() => {if(managers.length) gotoManager({year: podiums[0].year, leagueTeamManagers, rosterID: parseInt(podiums[0].champion)})}} >
                         <img src="{getAvatarFromTeamManagers(leagueTeamManagers, podiums[0].champion, podiums[0].year)}" class="first" alt="champion" />
                         <img src="/laurel.png" class="laurel" alt="laurel" />
                     </div>
-                    <span class="label" on:click={() => gotoManager({year: podiums[0].year, leagueTeamManagers, rosterID: parseInt(podiums[0].champion)})} >{getTeamFromTeamManagers(leagueTeamManagers, podiums[0].champion, podiums[0].year).name}</span>
+                    <span class="label" onclick={() => gotoManager({year: podiums[0].year, leagueTeamManagers, rosterID: parseInt(podiums[0].champion)})} >{getTeamFromTeamManagers(leagueTeamManagers, podiums[0].champion, podiums[0].year).name}</span>
                 {:else}
                     <p class="textCenter">No former champs.</p>
                 {/if}

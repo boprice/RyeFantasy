@@ -101,19 +101,19 @@
 
     <div class="buttonHolder">
         <Group variant="outlined">
-            <Button class="selectionButtons" on:click={() => key = "regularSeasonData"} variant="{key == "regularSeasonData" ? "raised" : "outlined"}">
+            <Button class="selectionButtons" onclick={() => key = "regularSeasonData"} variant="{key == "regularSeasonData" ? "raised" : "outlined"}">
                 <Label>Regular Season</Label>
             </Button>
-            <Button class="selectionButtons" on:click={() => key = "playoffData"} variant="{key == "playoffData" ? "raised" : "outlined"}">
+            <Button class="selectionButtons" onclick={() => key = "playoffData"} variant="{key == "playoffData" ? "raised" : "outlined"}">
                 <Label>Playoffs</Label>
             </Button>
         </Group>
         <br />
         <Group variant="outlined">
-            <Button class="selectionButtons" on:click={() => display = "allTime"} variant="{display == "allTime" ? "raised" : "outlined"}">
+            <Button class="selectionButtons" onclick={() => display = "allTime"} variant="{display == "allTime" ? "raised" : "outlined"}">
                 <Label>All-Time Stats</Label>
             </Button>
-            <Button class="selectionButtons" on:click={() => display = "season"} variant="{display == "season" ? "raised" : "outlined"}">
+            <Button class="selectionButtons" onclick={() => display = "season"} variant="{display == "season" ? "raised" : "outlined"}">
                 <Label>Season Stats</Label>
             </Button>
         </Group>

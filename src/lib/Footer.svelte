@@ -105,12 +105,12 @@
 			{#each tabs as tab}
 				{#if !tab.nest}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
-					<li><div class="navLink" on:click={() => goto(tab.dest)}>{tab.label}</div></li>
+					<li><div class="navLink" onclick={() => goto(tab.dest)}>{tab.label}</div></li>
 				{:else}
 					{#each tab.children as child}
 				        {#if child.label != "Managers" || managers.length > 0}
                             <!-- svelte-ignore a11y-click-events-have-key-events -->
-                            <li><div class="navLink" on:click={() => goto(child.dest)}>{child.label}</div></li>
+                            <li><div class="navLink" onclick={() => goto(child.dest)}>{child.label}</div></li>
                         {/if}
 					{/each}
 				{/if}

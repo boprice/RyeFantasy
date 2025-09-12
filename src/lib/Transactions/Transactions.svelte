@@ -74,7 +74,7 @@
 				<TradeTransaction {players} {transaction} {leagueTeamManagers} />
 			{/each}
 
-			<p on:click={() => goto("/transactions?show=trade&query=&page=1")} class="link">( view more )</p>
+			<p onclick={() => goto("/transactions?show=trade&query=&page=1")} class="link">( view more )</p>
 		{:else}
 			<p class="nothingYet">No trades have been made yet...</p>
 		{/if}
@@ -86,7 +86,7 @@
 				<WaiverTransaction {players} {transaction} {leagueTeamManagers} />
 			{/each}
 
-			<p on:click={() => goto("/transactions?show=waiver&query=&page=1")} class="link">( view more )</p>
+			<p onclick={() => goto("/transactions?show=waiver&query=&page=1")} class="link">( view more )</p>
 		{:else}
 			<p class="nothingYet">No waiver moves have been made yet...</p>
 		{/if}
