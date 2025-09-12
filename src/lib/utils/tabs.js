@@ -7,12 +7,12 @@ export const tabs = [
         dest: '/',
         key: 'home',
     },
-    {
-        icon: 'format_list_numbered',
-        label: 'The Stats',
-        nest: true,
-        key: 'the_stats',
-        children: [
+    // {
+    //     icon: 'format_list_numbered',
+    //     label: 'The Stats',
+    //     nest: true,
+    //     key: 'the_stats',
+    //     children: [
             {
                 icon: 'sports_football',
                 label: 'Stats',
@@ -38,8 +38,8 @@ export const tabs = [
                 key: 'awards',
             
             },
-        ]
-    },
+        // ]
+    // },
     {
         icon: 'view_comfy',
         label: 'League Info',

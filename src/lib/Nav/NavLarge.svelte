@@ -1,63 +1,73 @@
 <script>
-	import { tabs } from '$lib/utils/tabs';
-	import Tab, { Icon, Label } from '@smui/tab';
-	import List, { Item, Graphic, Text, Separator } from '@smui/list';
-	import TabBar from '@smui/tab-bar';
-    import { page } from '$app/state';
-	import { goto, preloadData } from '$app/navigation';
-	import { enableBlog, managers } from '$lib/utils/leagueInfo';
+    import { tabs } from '$lib/utils/tabs';
+    import Tab, { Icon, Label } from '@smui/tab';
+    import List, { Item, Graphic, Text, Separator } from '@smui/list';
+    import TabBar from '@smui/tab-bar';
+    import { page } from '$app/stores'; // <-- Updated import from $app/stores
+    import { goto, preloadData } from '$app/navigation';
+    import { enableBlog, managers } from '$lib/utils/leagueInfo';
 
-	let active = $state(tabs.find(tab => tab.dest == page.url.pathname || (tab.nest && tab.children.find(subTab => subTab.dest == page.url.pathname))));
+    // Reactive state for the active tab
+    let active = $state(tabs.find(tab => $page.url.pathname == tab.dest || (tab.nest && tab.children.find(subTab => $page.url.pathname == subTab.dest))));
 
-	let display = $state(false);
-	let el = $state();
-	let width = $state();
-	let height= $state();
-	let left = $state();
-	let top = $state();
+    // State for submenu visibility and positioning
+    let display = $state(false);
+    let subMenuPosition = $state({ top: 0, left: 0, width: 0 });
+    
+    // Element references
+    let menuContainerEl = $state();
+    let triggerEl = $state();
 
-	$effect(() => {
-		top = el?.getBoundingClientRect() ? el?.getBoundingClientRect().top  : 0;
-		const bottom = el?.getBoundingClientRect() ? el?.getBoundingClientRect().bottom  : 0;
+    // This is our new positioning function
+    const updateSubMenuPosition = () => {
+        if (!menuContainerEl || !triggerEl) return;
 
-		height = bottom - top + 1;
+        const containerRect = menuContainerEl.getBoundingClientRect();
+        const triggerRect = triggerEl.getBoundingClientRect();
 
-		left = el?.getBoundingClientRect() ? el?.getBoundingClientRect().left  : 0;
-		const right = el?.getBoundingClientRect() ? el?.getBoundingClientRect().right  : 0;
+        subMenuPosition = {
+            // Position it directly below the container
+            top: containerRect.height,
+            // The KEY FIX: calculate left relative to the container, not the window
+            left: triggerRect.left - containerRect.left,
+            // Match the width of the trigger tab
+            width: triggerRect.width
+        };
+    };
 
-		width = right - left;
-	});
+    // Recalculate position when the trigger element is available or active tab changes
+    $effect(() => {
+        if (triggerEl) {
+            updateSubMenuPosition();
+        }
+    });
 
-	$effect(() => {
-		if(active.key === 'league_info') {
-			setTimeout(() => {
-				open();
-			}, 0);
-		}
-	});
+    // Handle opening/closing when the 'League Info' tab is active
+    $effect(() => {
+        if(active?.key === 'league_info') {
+            // A short delay can help ensure elements are rendered
+            setTimeout(() => {
+                display = true;
+            }, 0);
+        } else {
+            display = false;
+        }
+    });
 
-	let innerWidth = $state();
+    const toggleSubMenu = () => {
+        display = !display;
+    }
 
-	const open = () => {
-		display = !display;
-	}
+    const subGoto = (dest) => {
+        display = false;
+        goto(dest);
+    }
 
-	const subGoto = (dest) => {
-		open(false);
-		goto(dest);
-	}
-
-	let tabChildren = $state([]);
-
-	for(const tab of tabs) {
-		if(tab.nest) {
-			tabChildren = tab.children;
-		}
-	}
-
+    // Simplified logic for getting sub-menu children
+    const tabChildren = tabs.find(tab => tab.nest)?.children || [];
 </script>
 
-<svelte:window bind:innerWidth={innerWidth} />
+<svelte:window onresize={() => updateSubMenuPosition()} />
 
 <style>
     :global(.navBar) {
@@ -109,21 +119,18 @@
 	}
 </style>
 
-<div tabindex="0" role="button" class="overlay" style="display: {display ? "block" : "none"};" onclick={() => open(true)}></div>
+<div tabindex="0" role="button" class="overlay" style="display: {display ? "block" : "none"};" onclick={toggleSubMenu}></div>
 
-<div class="parent">
+<div class="parent" bind:this={menuContainerEl}>
 	<TabBar class="navBar" {tabs} key={(tab) => tab.key} bind:active>
-		{#snippet tab(tab)}
-			{#if tab.nest}
-				<div bind:this={el}>
-					<Tab
-						{tab}
-						minWidth
-					>
-						<Icon class="material-icons">{tab.icon}</Icon>
-						<Label>{tab.label}</Label>
-					</Tab>
-				</div>
+        {#snippet tab(tab)}
+            {#if tab.nest}
+                <div bind:this={triggerEl}>
+                    <Tab {tab} minWidth onclick={toggleSubMenu}>
+                        <Icon class="material-icons">{tab.icon}</Icon>
+                        <Label>{tab.label}</Label>
+                    </Tab>
+                </div>
 			{:else}
 				<Tab
 					class="{tab.label == 'Blog' && !enableBlog ? 'dontDisplay' : ''}"
@@ -139,7 +146,18 @@
 			{/if}
 		{/snippet}
 	</TabBar>
-	<div class="subMenu" style="max-height: {display ? 49 * tabChildren.length - 1 - (managers.length ? 0 : 48) : 0}px; width: {width}px; top: {height}px; left: {left}px; box-shadow: 0 0 {display ? "3px" : "0"} 0 #00316b; border: {display ? "1px" : "0"} solid #00316b; border-top: none;">
+	<div 
+        class="subMenu" 
+        style="
+            max-height: {display ? 49 * tabChildren.length - 1 - (managers.length ? 0 : 48) : 0}px; 
+            width: {subMenuPosition.width}px; 
+            top: {subMenuPosition.top}px; 
+            left: {subMenuPosition.left}px; 
+            box-shadow: 0 0 {display ? '3px' : '0'} 0 #00316b; 
+            border: {display ? '1px' : '0'} solid #00316b; 
+            border-top: none;
+        "
+    >
 		<List>
 			{#each tabChildren as subTab, ix}
 				{#if subTab.label == 'Managers'}

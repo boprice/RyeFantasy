@@ -1,6 +1,5 @@
 <script>
     import { dues } from '$lib/utils/helper';
-    import { bind } from 'svelte/internal';
     let one, oneOne, oneOneOne, oneTwo, oneTwoOne, oneTwoTwo, oneTwoThree, oneTwoFour, oneTwoFive, oneThree, oneFour;
     let two, twoOne, twoTwo, twoTwoTwo, twoThree, twoFour, twoFive;
     let three, threeOne;

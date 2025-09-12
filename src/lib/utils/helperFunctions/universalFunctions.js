@@ -35,7 +35,7 @@ export async function getFromCacheOrFetch(key, fetchFunction, ttl_hours = 24) {
             const parsedItem = JSON.parse(cachedItem);
             // Check if the cache is still valid
             if (now - parsedItem.timestamp < TTL) {
-                console.log(`Returning cached data for: ${key}`);
+                // console.log(`Returning cached data for: ${key}`);
                 return parsedItem.data;
             }
         } catch (e) {
