@@ -1,17 +1,19 @@
 {
-  "name": "league-page",
+  "name": "ryefantasy",
   "version": "2.4.0",
-  "homepage": "https://github.com/nmelhado/league-page",
+  "homepage": "https://github.com/boprice/ryefantasy",
   "repository": {
     "type": "git",
-    "url": "git://github.com/nmelhado/league-page.git"
+    "url": "git://github.com/boprice/ryefantasy.git"
   },
   "author": {
-    "name": "Nicholas Melhado",
-    "email": "n.melhado@gmail.com",
-    "url": "http://www.nmelhado.com/"
+    "name": "Bo Price"
   },
   "contributors": [
+    {
+      "name": "Nicholas Melhado",
+      "url": "https://github.com/nmelhado"
+    },
     {
       "name": "Shane Tjong-Akiet",
       "url": "https://github.com/shanetj"
@@ -29,13 +31,8 @@
       "url": "https://github.com/OldNewsBlues-2"
     }
   ],
-  "funding": {
-    "type": "buy_me_a_coffee",
-    "url": "https://www.buymeacoffee.com/nmelhado"
-  },
   "bugs": {
-    "url": "https://github.com/nmelhado/league-page/issues",
-    "email": "n.melhado@gmail.com"
+    "url": "https://github.com/boprice/ryefantasy/issues"
   },
   "license": "MIT",
   "engines": {
@@ -45,9 +42,9 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "build-docker": "DOCKER_BUILD=true vite build --verbose",
-    "docker-build": "docker build . -t $USER/league-page:latest",
-    "docker-run": "npm run docker-build && docker run -p 3000:3000 $USER/league-page:latest",
+    "build:docker": "DOCKER_BUILD=true vite build --verbose",
+    "docker:build": "docker build . -t $USER/ryefantasy:latest",
+    "docker:run": "npm run docker:build && docker run -p 3000:3000 $USER/ryefantasy:latest",
     "preview": "vite preview",
     "prepare": "npm run smui-theme-light && npm run smui-theme-dark",
     "smui-theme-light": "smui-theme compile static/smui.css -i src/theme",

@@ -43,12 +43,11 @@
 		box-shadow: inset 8px 0px 6px -6px rgb(0 0 0 / 24%);
     }
 
-    .center {
+    /* .center {
         display: flex;
         justify-content: center;
         align-items: center;
-        /* width: 100%; */
-    }
+    } */
 
     @media (max-width: 950px) {
         .leagueData {
@@ -72,10 +71,10 @@
         text-align: center;
     }
 
-    h2 {
+    /* h2 {
         text-align: center;
         font-style: italic;
-    }
+    } */
 
     p {
         text-align: center;
@@ -104,6 +103,7 @@
         width: 150px;
         height: 150px;
         margin: 0 auto;
+        display: block;
         cursor: pointer;
     }
 
@@ -149,6 +149,14 @@
 		color: #bbb;
 		font-style: italic;
 	}
+
+    #champ, .label {
+        background: none;
+        border: none;
+        padding: 0;
+        font: inherit;
+        color: inherit;
+    }
 </style>
 
 <div id="home">
@@ -200,11 +208,11 @@
             {:then [podiums, leagueTeamManagers]}
                 {#if podiums[0]}
                     <h4>{podiums[0].year} Fantasy Champ</h4>
-                    <div id="champ" onclick={() => {if(managers.length) gotoManager({year: podiums[0].year, leagueTeamManagers, rosterID: parseInt(podiums[0].champion)})}} >
+                    <button type="button" id="champ" on:click={() => gotoManager({year: podiums[0].year, leagueTeamManagers, rosterID: parseInt(podiums[0].champion)})}>
                         <img src="{getAvatarFromTeamManagers(leagueTeamManagers, podiums[0].champion, podiums[0].year)}" class="first" alt="champion" />
                         <img src="/laurel.png" class="laurel" alt="laurel" />
-                    </div>
-                    <span class="label" onclick={() => gotoManager({year: podiums[0].year, leagueTeamManagers, rosterID: parseInt(podiums[0].champion)})} >{getTeamFromTeamManagers(leagueTeamManagers, podiums[0].champion, podiums[0].year).name}</span>
+                    </button>
+                    <button type="button" class="label" on:click={() => gotoManager({year: podiums[0].year, leagueTeamManagers, rosterID: parseInt(podiums[0].champion)})}>{getTeamFromTeamManagers(leagueTeamManagers, podiums[0].champion, podiums[0].year).name}</button>
                 {:else}
                     <p class="textCenter">No former champs.</p>
                 {/if}
