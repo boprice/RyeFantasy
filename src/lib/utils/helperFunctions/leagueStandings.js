@@ -63,7 +63,7 @@ export const getLeagueStandings = async () => {
 
         // pull in all matchup data for the season
         const matchupsPromises = [];
-        for(let i = week - 1; i > 0; i--) {
+        for(let i = week; i > 0; i--) {
             matchupsPromises.push(fetch(`https://api.sleeper.app/v1/league/${leagueID}/matchups/${i}`, {compress: true}))
         }
         const matchupsRes = await waitForAll(...matchupsPromises);
