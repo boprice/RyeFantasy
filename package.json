@@ -69,6 +69,7 @@
     "@smui/linear-progress": "^8.0.0-beta.3",
     "@smui/list": "^8.0.0-beta.3",
     "@smui/paper": "^8.0.0-beta.3",
+    "@smui/segmented-button": "^8.0.0-beta.3",
     "@smui/tab": "^8.0.0-beta.3",
     "@smui/tab-bar": "^8.0.0-beta.3",
     "@smui/textfield": "^8.0.0-beta.3",
