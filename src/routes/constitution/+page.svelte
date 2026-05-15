@@ -149,7 +149,7 @@
     
     <h3 class="subSectionHeading" bind:this={oneOne}>1.1 Positional Breakdown</h3>
     
-    <p>28 Total Players</p>
+    <p>30 Total Players</p>
     <p>8 Starters:</p>
     <ul>
         <li>QB</li>
@@ -157,13 +157,13 @@
         <li>RB</li>
         <li>WR</li>
         <li>WR</li>
-        <li>TE</li>
+        <li>FLEX</li>
         <li>FLEX</li>
         <li>FLEX</li>
     </ul>
-    <p>14 Bench</p>
-    <p>3 IR (Player must be labeled as IR, Out, or PUP on Sleeper.)</p>
-    <p>3 Taxi Squad</p>
+    <p>15 Bench</p>
+    <p>3 IR (Player must be labeled as IR, Out, Doubtful, or PUP on Sleeper.)</p>
+    <p>4 Taxi Squad</p>
 
 
     <h3 class="subSectionHeading" bind:this={oneTwo}>1.2 Taxi Squad</h3>
@@ -288,6 +288,7 @@
     <ul>
         <li>Per Yard: 0.1</li>
         <li>PPR: 0.5</li>
+        <li>TE PPR: 1.0</li>
         <li>40+ Yard Rec: 1</li>
         <li>40+ Yard TD: 1</li>
     </ul>
