@@ -1,4 +1,4 @@
-export const leagueID = 1349834124218634240; // your league ID
+export const leagueID = 1349834124218634240n; // your league ID
 export const leagueName = "Respect Your Elders"; // your league name
 export const dues = 100; // (optional) used in template constitution page
 export const dynasty = true; // true for dynasty leagues, false for redraft and keeper
